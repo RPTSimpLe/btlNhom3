@@ -32,7 +32,7 @@
             <div class="billing_details">
                 <div class="row">
                     <div class="col-lg-8">
-                        <h3>Billing Details</h3>
+                        <h3>Chi tiết thanh toán</h3>
                         <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                             <div class="col-md-6 form-group p_star">
                                 <input type="text" class="form-control" id="first" name="name">
@@ -94,7 +94,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="order_box">
-                            <h2>Your Order</h2>
+                            <h2>Đơn hàng của bạn</h2>
                             <ul class="list">
                                 <li><a href="#">Product <span>Total</span></a></li>
                                 <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
@@ -104,7 +104,7 @@
                             <ul class="list list_2">
                                 <li><a href="#">Subtotal <span>$2160.00</span></a></li>
                                 <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                                <li><a href="#">Total <span>$2210.00</span></a></li>
+                                <li><a href="#">Tổng tiền <span>$2210.00</span></a></li>
                             </ul>
                             <div class="payment_item active">
                                 <div class="radion_btn">
@@ -116,7 +116,7 @@
                                 <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
                                     account.</p>
                             </div>
-                            <a class="primary-btn" href="/user/bill">Proceed to Paypal</a>
+                            <a class="primary-btn" href="/user/bill">Xác nhận thanh toán</a>
                         </div>
                     </div>
                 </div>

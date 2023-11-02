@@ -13,7 +13,7 @@
     <section class="order_details section_gap">
         <div class="container">
             <div class="order_details_table">
-                <h2>Order Details</h2>
+                <h2>Chi tiết đơn hàng</h2>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>

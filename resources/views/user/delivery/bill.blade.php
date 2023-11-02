@@ -31,14 +31,14 @@
         <div class="container">
             <h3 class="title_confirmation">Thank you. Your order has been received.</h3>
             <div class="order_details_table">
-                <h2>Order Details</h2>
+                <h2>Chi tiết đơn hàng</h2>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Product</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>
+                            <th scope="col">Sản phẩm</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Tổng tiền</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -99,7 +99,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <h4>Total</h4>
+                                <h4>Tổng tiền</h4>
                             </td>
                             <td>
                                 <h5></h5>
