@@ -1,0 +1,26 @@
+cách chạy prj mở git(cmd) trong qlsv, sau đó chạy lệnh:
+	php artisan serve
+đường link mặc định: http://127.0.0.1:8000/
+
+chạy lệnh dưới để tạo dtbs và đẩy dữ liệu lên sql
+ php artisan migrate:fresh --seed --seeder=RunSeeder
+
+fix lỗi không chạy được:
+
+composer install
+cp .env.example .env
+php artisan key:generate
+
+fix lỗi seeder:
+
+1, mở file composer.json kiểm tra auto load
+"autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/Seeders/"
+        }
+    },
+2, mở cmd chạy:
+   composer dump-autoload
+   php artisan db:seed
