@@ -11,6 +11,15 @@ composer install
 cp .env.example .env
 php artisan key:generate
 
+làm xong 1 chức năng thi đẩy lên git
+git pull
+git add .
+git commit -m "content"
+git push origin main
+
+cập nhập lại git
+git pull
+
 fix lỗi seeder:
 
 1, mở file composer.json kiểm tra auto load

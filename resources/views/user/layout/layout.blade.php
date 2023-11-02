@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img src="https://th.bing.com/th/id/OIP.hXshohTp7T6Nse9m8hX8nwHaFw?pid=ImgDet&rs=1" style="object-fit: cover;width: 137px; height: 50px;" alt=""></a>
+                <a class="navbar-brand logo_h" href="/dashboard"><img  src="https://th.bing.com/th/id/OIP.hXshohTp7T6Nse9m8hX8nwHaFw?pid=ImgDet&rs=1" style="object-fit: cover;width: 137px; height: 50px;" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>

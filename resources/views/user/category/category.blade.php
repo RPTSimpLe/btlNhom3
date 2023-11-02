@@ -66,16 +66,19 @@
             </div>
             <div class="col-xl-9 col-lg-8 col-md-7">
                 <!-- Start Filter Bar -->
-                <div class="filter-bar d-flex flex-wrap align-items-center">
-                    <div class="pagination">
-                        <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                        <a href="#">6</a>
-                        <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                    </div>
+
+                <!-- phân trang -->
+{{--                <div  class="filter-bar d-flex flex-wrap align-items-center">--}}
+{{--                    <div class="pagination">--}}
+{{--                        <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>--}}
+{{--                        <a href="#" class="active">1</a>--}}
+{{--                        <a href="#">2</a>--}}
+{{--                        <a href="#">3</a>--}}
+{{--                        <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>--}}
+{{--                        <a href="#">6</a>--}}
+{{--                        <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>--}}
+{{--                    </div>--}}
+
                 </div>
                 <!-- End Filter Bar -->
                 <!-- Start Best Seller -->
@@ -299,7 +302,7 @@
         </div>
     </div>
 
-    
+
     <!-- Modal Quick Product View -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -377,6 +380,38 @@
                 }
                 document.querySelector(".main-categories").innerHTML=html
             })
+
+    </script>
+    <script>
+        var paginationLinks = document.querySelectorAll('.pagination a');
+
+        paginationLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                paginationLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                var pageNumber = parseInt(this.textContent);
+                paginate(pageNumber);
+            });
+        });
+
+        function paginate(pageNumber) {
+            var itemsPerPage = 10;
+            var startIndex = (pageNumber - 1) * itemsPerPage;
+            var endIndex = startIndex + itemsPerPage;
+
+            var items = document.getElementsByClassName('item');
+
+            for (var i = 0; i < items.length; i++) {
+                if (i >= startIndex && i < endIndex) {
+                    items[i].style.display = 'block';
+                } else {
+                    items[i].style.display = 'none';
+                }
+            }
+        }
 
     </script>
 @endsection
