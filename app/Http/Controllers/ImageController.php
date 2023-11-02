@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\Image;
+use App\Models\sanPham;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -81,7 +82,7 @@ class ImageController extends Controller
         $image=$this->search($id);
         $newName = $this->newName($request);
         if(is_null($image)){
-            $this->store($request,$request->vaiTro);
+            $this->store($request,$id);
         }else{
             $this->deleteImgFile($image);
             $image->update([
@@ -90,11 +91,32 @@ class ImageController extends Controller
             $request->img->move(public_path("images"),$newName);
         }
     }
-
+    public function updatePro(Request $request,$id)
+    {
+        $image=DB::table("images")->where("sanPham_id","=",$id)->first();
+        $newName = $this->newName($request);
+        if(is_null($image)){
+            $this->storeSanPham($request,$id);
+        }else{
+        $image=Image::find($image->id);
+            $this->deleteImgFile($image);
+            $image->update([
+                "url"=>$newName,
+            ]);
+            $request->img->move(public_path("images"),$newName);
+        }
+    }
+    public function destroyPro($id)
+    {
+        $image=$this->searchPro($id);
+        $img=Image::find($image->id);
+        $this->deleteImgFile($img);
+        $img->delete();
+    }
     /**
      * Remove the specified resource from storage.
      */
-    public function deleteImgFile(Image $image){
+    public function deleteImgFile( $image){
         $url=$image->url;
         $path =public_path('/images/'.$url);
         if(file_exists($path)){
@@ -109,5 +131,9 @@ class ImageController extends Controller
     }
     public function search($id){
         return User::find($id)->images;
+    }
+    public function searchPro($id){
+        $url=DB::table("images")->where("sanPham_id","=",$id)->first();
+        return $url;
     }
 }

@@ -35,6 +35,14 @@ function getLinkImg(id){
             image.src = "/images/" + data.url
         });
 }
+
+function getLinkImgPro(id){
+    image.src=""
+    get("/getLinkPro/"+id)
+        .then(data => {
+            image.src = "/images/" + data.url
+        });
+}
 function deletee($id){
     event.preventDefault()
     const isconfirm =confirm("Xác nhận xóa!")

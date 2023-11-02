@@ -29,4 +29,7 @@ class sanPham extends Model
         "giaBan",
         "danhMuc_id"
     ];
+    public function images(){
+        $this->hasOne(Image::class,"sanPham_id","id");
+    }
 }

@@ -76,7 +76,16 @@
                                     <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả:</label></div>
                                     <div class="col-12 col-md-9"><textarea name="moTa" id="textarea-input" rows="9"  class="form-control moTa"></textarea></div>
                                 </div>
-
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện: </label>
+                                    </div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file-input" name="img"
+                                                                        class="form-control-file">
+                                        @error('img')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="row form-group" style="margin-left: 89%;">
                                     <button type="submit" class="btn btn-primary">Cập nhật</button>
                                 </div>
@@ -173,6 +182,8 @@
             let namSX= document.querySelector(".namSX")
             let moTa= document.querySelector(".moTa")
             let ids= document.querySelectorAll(".id")
+            let image= document.getElementById("image")
+
             document.getElementById("formEditProfile").action = "/admins/admin/updateSanPham/"+$sanPham.id;
             for (const id of ids) {
                 id.value = $sanPham.id
@@ -185,6 +196,9 @@
             giaNhap.value = $sanPham.giaNhap
             namSX.value = $sanPham.namSX
             moTa.value = $sanPham.moTa
+
+            image.src=""
+            getLinkImgPro($sanPham.id)
         }
     </script>
     @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\danhMuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function Laravel\Prompts\table;
 
 class DanhMucController extends Controller
 {
@@ -75,6 +76,13 @@ class DanhMucController extends Controller
     public function destroy($id)
     {
         $danhMuc = danhMuc::find($id);
+        $sanPhams= DB::table("san_phams")->where("danhMuc_id","=",$id)->get();
+        if (isset($sanPhams)){
+            $x = new SanPhamController();
+            foreach ($sanPhams as $sanPham){
+                $x->destroy($sanPham->id);
+            }
+        }
         $danhMuc->delete();
         return back();
     }

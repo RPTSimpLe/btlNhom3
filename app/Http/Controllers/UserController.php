@@ -118,16 +118,6 @@ class UserController extends Controller
     }
     public function destroy($id){
         $user= User::find($id);
-        if( $user->vaiTro == "student"){
-            $student=User::find($id)->students;
-            StudentController::destroy($student);
-        }elseif ( $user->vaiTro == "teacher"){
-            $teacher=User::find($id)->teachers;
-            if(Teacher::find($teacher->id)->timetables->first()!=null){
-                return back() ->with("errorTeacher","Vui lòng đổi giảng viên bộ môn trong thời khóa biểu trước khi xóa");
-            }
-            TeacherController::destroy($teacher);
-        }
         if(isset(User::find($id)->images)) {
             $img = new ImageController();
             $img->destroy($id);

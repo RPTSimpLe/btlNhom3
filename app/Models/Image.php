@@ -20,8 +20,12 @@ class Image extends Model
     protected $fillable = [
         'url',
         "user_id",
+        "sanPham_id",
     ];
     public function users(){
         return $this->belongsTo(User::class,"user_id");
+    }
+    public function sanPhams(){
+        return $this->belongsTo(sanPham::class,"sanPham_id");
     }
 }
