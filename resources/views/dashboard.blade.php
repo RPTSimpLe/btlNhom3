@@ -19,35 +19,29 @@
                         <div class="row single-slide align-items-center d-flex">
                             <div class="col-lg-5 col-md-6">
                                 <div class="banner-content">
-                                    <h1>Nike New <br>Collection!</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                    <div class="add-bag d-flex align-items-center">
-
-                                    </div>
+                                    <h2>Laptop Asus TUF Gaming FX506HF-HN017W <br></h2>
+                                    <br>
+                                    <p>Core i5 11400H/16GB/512GB/GeForce RTX 2050 4GB/Win11</p>
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="banner-img">
-                                    <img class="img-fluid" src="{{asset("user/img/banner/banner-img.png")}}" alt="">
+                                    <img class="img-fluid" src="{{asset("user/img/banner/laptop.png")}}" alt="">
                                 </div>
                             </div>
                         </div>
                         <!-- single-slide -->
-                        <div class="row single-slide">
-                            <div class="col-lg-5">
+                        <div class="row single-slide align-items-center d-flex">
+                            <div class="col-lg-5 col-md-6">
                                 <div class="banner-content">
-                                    <h1>Nike New <br>Collection!</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                                    <div class="add-bag d-flex align-items-center">
-
-                                    </div>
+                                    <h2>Laptop HP Pavilion <br> 14-dv2073TU <br></h2>
+                                    <br>
+                                    <p>Core i5 1235U/16GB/512GB/Win11</p>
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="banner-img">
-                                    <img class="img-fluid" src="{{asset("user/img/banner/banner-img.png")}}" alt="">
+                                    <img class="img-fluid" src="{{asset("user/img/banner/lapHP.png")}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -68,8 +62,8 @@
                         <div class="f-icon">
                             <img src="{{asset("user/img/features/f-icon1.png")}}" alt="">
                         </div>
-                        <h6>Free Delivery</h6>
-                        <p>Free Shipping on all order</p>
+                        <h6>Giao hàng miễn phí</h6>
+                        <p>Miễn phí vận chuyển cho mọi đơn hàng</p>
                     </div>
                 </div>
                 <!-- single features -->
@@ -78,8 +72,8 @@
                         <div class="f-icon">
                             <img src="{{asset("user/img/features/f-icon2.png")}}" alt="">
                         </div>
-                        <h6>Return Policy</h6>
-                        <p>Free Shipping on all order</p>
+                        <h6>Chính sách hoàn trả</h6>
+                        <p>Miễn phí vận chuyển cho mọi đơn hàng</p>
                     </div>
                 </div>
                 <!-- single features -->
@@ -88,8 +82,8 @@
                         <div class="f-icon">
                             <img src="{{asset("user/img/features/f-icon3.png")}}" alt="">
                         </div>
-                        <h6>24/7 Support</h6>
-                        <p>Free Shipping on all order</p>
+                        <h6>Hỗ trợ 24/7</h6>
+                        <p>Miễn phí vận chuyển cho mọi đơn hàng</p>
                     </div>
                 </div>
                 <!-- single features -->
@@ -98,8 +92,8 @@
                         <div class="f-icon">
                             <img src="{{asset("user/img/features/f-icon4.png")}}" alt="">
                         </div>
-                        <h6>Secure Payment</h6>
-                        <p>Free Shipping on all order</p>
+                        <h6>Thanh toán an toàn</h6>
+                        <p>Miễn phí vận chuyển cho mọi đơn hàng</p>
                     </div>
                 </div>
             </div>
@@ -180,7 +174,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1>Sản phẩm gần đây</h1
+                        <h1>Sản phẩm gần đây</h1>
                     </div>
                 </div>
             </div>
@@ -300,7 +294,7 @@
                 <div class="col-lg-3">
                     <div class="ctg-right">
                         <a href="#" target="_blank">
-                            <img class="img-fluid d-block mx-auto" src="{asset("user/img/category/c5.jpg")}} alt="">
+                            <img class="img-fluid d-block mx-auto" src="{{asset("user/img/category/c5.jpg")}}" alt="">
                         </a>
                     </div>
                 </div>
