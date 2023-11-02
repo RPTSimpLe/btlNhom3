@@ -60,6 +60,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get("/admin/taoSanPham",[\App\Http\Controllers\SanPhamController::class,"index"]);
         Route::post("/admin/taoSanPham",[\App\Http\Controllers\SanPhamController::class,"store"]);
+        Route::get("/admin/danhSachSanPham",[\App\Http\Controllers\SanPhamController::class,"show"]);
+
 
         Route::get("admin/createDepartment",function (){return view("admin.department.createDepartment");});
         Route::post("admin/createDepartment",[DepartmentController::class,"store"]);

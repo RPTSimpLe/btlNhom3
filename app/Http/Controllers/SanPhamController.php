@@ -51,7 +51,8 @@ class SanPhamController extends Controller
      */
     public function show(sanPham $sanPham)
     {
-        //
+        $sanPhams = sanPham::all();
+        return view("admin.sanPham.danhSachSanPham",compact("sanPhams"));
     }
 
     /**

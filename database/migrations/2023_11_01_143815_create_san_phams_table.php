@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string("tonKho");
             $table->string('moTa');
             $table->string("baoHanh");
-            $table->integer("giaBan");
-            $table->integer("giaNhap");
+            $table->bigInteger("giaBan");
+            $table->bigInteger("giaNhap");
             $table->foreignId("danhMuc_id")->nullable()->constrained("danh_mucs");
             $table->timestamps();
         });

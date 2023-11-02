@@ -48,7 +48,8 @@
         <div class="col-12 col-md-9">
             <input type="text" id="text-input" class="form-control" name="namSX">
         </div>
-    </div><div class="row form-group">
+    </div>
+    <div class="row form-group">
         <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Bảo hành: </label></div>
         <div class="col-12 col-md-9">
             <input type="text" id="text-input" class="form-control" name="baoHanh">

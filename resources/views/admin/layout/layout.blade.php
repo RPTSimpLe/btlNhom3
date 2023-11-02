@@ -49,7 +49,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-address-card "></i>Sản phẩm</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa  fa-plus-square-o"></i><a href="/admins/admin/taoSanPham">Thêm sản phẩm</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="/admins/admin/list">Danh sách sản phẩm</a></li>
+                        <li><i class="fa fa-id-badge"></i><a href="/admins/admin/danhSachSanPham">Danh sách sản phẩm</a></li>
                     </ul>
                 </li>
             </ul>
