@@ -299,7 +299,7 @@
         </div>
     </div>
 
-    
+
     <!-- Modal Quick Product View -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">

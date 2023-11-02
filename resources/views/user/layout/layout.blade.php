@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="/dashboard" style="color: #222222;">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/user/category">Danh mục sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/category">Danh mục sản phẩm</a></li>
                        @if(\Illuminate\Support\Facades\Auth::user()==null)
                             <li class="nav-item"><a class="nav-link" href="/login">Đăng nhập</a></li>
                         @else

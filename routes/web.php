@@ -34,6 +34,8 @@ Route::get('/dashboard', function () {
 
     return view('dashboard');
 })->name('dashboard');
+Route::get("/danhSachDanhMuc",[DanhMucController::class,"showall"]);
+Route::get("/category",function (){return view("user.category.category");});
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // các route chỉ được truy cập bởi user có quyền admin
@@ -61,7 +63,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/admin/taoSanPham",[\App\Http\Controllers\SanPhamController::class,"index"]);
         Route::post("/admin/taoSanPham",[\App\Http\Controllers\SanPhamController::class,"store"]);
         Route::get("/admin/danhSachSanPham",[\App\Http\Controllers\SanPhamController::class,"show"]);
-
+        Route::get("/admin/danhSachSanPham",[\App\Http\Controllers\SanPhamController::class,"show"]);
+        Route::patch("/admin/updateSanPham/{id}",[\App\Http\Controllers\SanPhamController::class,"update"]);
+        Route::delete("/admin/deleteSanPham/{id}",[\App\Http\Controllers\SanPhamController::class,"destroy"]);
 
         Route::get("admin/createDepartment",function (){return view("admin.department.createDepartment");});
         Route::post("admin/createDepartment",[DepartmentController::class,"store"]);
@@ -115,8 +119,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // các route chỉ được truy cập bởi user
     Route::middleware(['can:user'])->prefix("user")->group(function () {
-        Route::get("/category",function (){return view("user.category.category");});
-        Route::get("/danhSachDanhMuc",[DanhMucController::class,"showall"]);
+
 
         Route::get("/cart",function (){return view("user.cart.cart");});
         Route::get("/datHang",function (){return view("user.delivery.datHang");});
@@ -127,6 +130,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put("/profile/password",[UserController::class,"updatePass"]);
     Route::get("/getLink/{id}",[ImageController::class,"search"]);
     Route::get("/delete",[ImageController::class,"destroy"]);
+    Route::get("/getLinkPro/{id}",[ImageController::class,"searchPro"]);
 
 });
  Route::post("/registerr",[UserController::class,"store"]);
