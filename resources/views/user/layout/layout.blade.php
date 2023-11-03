@@ -73,11 +73,13 @@
                        @endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                                    @if(\Illuminate\Support\Facades\Auth::user()!=null)
                                         @php
-                                            $user=\Illuminate\Support\Facades\Auth::user();
-                                            $count= \Illuminate\Support\Facades\DB::table("gio_hangs")->where("user_id","=",$user->id)->count();
+                                                $user=\Illuminate\Support\Facades\Auth::user();
+                                                $count= \Illuminate\Support\Facades\DB::table("gio_hangs")->where("user_id","=",$user->id)->count();
                                         @endphp
-                        <li class="nav-item"><a href="/user/gioHang" class="cart"><span class="ti-bag"><span>{{$count}}</span></span></a></li>
+                                    @endif
+                        <li class="nav-item"><a href="/user/gioHang" class="cart"><span class="ti-bag"><span>{{isset($count) ? $count : 0 }}</span></span></a></li>
                         <li class="nav-item">
                             <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                         </li>
