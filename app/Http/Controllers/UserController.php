@@ -26,7 +26,11 @@ class UserController extends Controller
         isset(User::find($user->id)->images->url)? $url=User::find($user->id)->images->url:$url="";
         return view("admin.profile",compact("user","url"));
     }
-
+    public function profileKhach(){
+        $user= Auth::user();
+        isset(User::find($user->id)->images->url)? $url=User::find($user->id)->images->url:$url="";
+        return view("user.thongTin.thongTin",compact("user","url"));
+    }
     public function adminStore(Request $request){
         $matkhau= $request->matKhau;
         $user=User::create([
@@ -54,7 +58,6 @@ class UserController extends Controller
             "vaiTro" => $request->vaiTro,
             "sDT" => $request->sDT,
             "email" => $request->email,
-            "diaChi" => $request->diaChi,
             "ngaySinh" => $request->ngaySinh,
         ]);
         $user->save();
@@ -77,7 +80,6 @@ class UserController extends Controller
             "hoTen" => $request->hoTen,
             "sDT"  => $request->sDT,
             "ngaySinh" => $request->ngaySinh,
-            "diaChi" => $request->diaChi,
         ]);
 
         if(isset($request->img)){
@@ -86,7 +88,6 @@ class UserController extends Controller
         }
         return back()->with('status','Cập nhật thông tin thành công');
     }
-
     public function updatePass(UserRequest $request)
     {
         $validated = $request->validated();

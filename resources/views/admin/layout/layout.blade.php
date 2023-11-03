@@ -20,7 +20,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="/admins/"><h1 style="color: white; font-size: 30px">ADMIN HUNRE</h1></a>
+            <a class="navbar-brand" href="/admins/"><h1 style="color: white; font-size: 30px">ADMIN</h1></a>
             <a class="navbar-brand hidden" href="./"><img src="https://student.hunre.edu.vn/congthongtin/logo.png" alt=""></a>
         </div>
 
@@ -51,6 +51,9 @@
                         <li><i class="fa  fa-plus-square-o"></i><a href="/admins/admin/taoSanPham">Thêm sản phẩm</a></li>
                         <li><i class="fa fa-id-badge"></i><a href="/admins/admin/danhSachSanPham">Danh sách sản phẩm</a></li>
                     </ul>
+                </li>
+                <li >
+                    <a href="/admins/admin/donHang"> <i class="menu-icon fa fa-dashboard"></i>Đơn hàng</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

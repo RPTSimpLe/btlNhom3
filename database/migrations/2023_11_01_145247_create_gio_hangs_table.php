@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('gio_hangs', function (Blueprint $table) {
             $table->id();
-            $table->string("soLuong");
+            $table->integer("soLuong");
+            $table->bigInteger("tongTien");
             $table->foreignId("sanPham_id")->nullable()->constrained('san_phams');
+            $table->foreignId("user_id")->nullable()->constrained();
             $table->timestamps();
         });
     }

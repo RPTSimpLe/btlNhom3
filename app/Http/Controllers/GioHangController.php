@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\gioHang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GioHangController extends Controller
 {
@@ -12,7 +14,12 @@ class GioHangController extends Controller
      */
     public function index()
     {
-        //
+        $carts = DB::table("gio_hangs")
+                ->select("gio_hangs.*","images.url","san_phams.giaBan","san_phams.ten")
+                ->join("san_phams","san_phams.id","=","sanPham_id")
+                ->join("images","images.sanPham_id","=","gio_hangs.sanPham_id")
+                ->get();
+        return view("user.gioHang.gioHang",compact("carts"));
     }
 
     /**
@@ -28,15 +35,27 @@ class GioHangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tongTien= $request->soLuong*$request->gia;
+        $gioHang = gioHang::create([
+            "soLuong" => $request->soLuong,
+            "sanPham_id" => $request->sanPhamId,
+            "user_id" => Auth::user()->id,
+            "tongTien" => $tongTien,
+        ]);
+        $gioHang->save();
+        return back();
     }
 
+    public function hienThiGioHang(){
+
+    }
     /**
      * Display the specified resource.
      */
     public function show(gioHang $gioHang)
     {
-        //
+//        $carts = gioHang::all();
+//        re
     }
 
     /**
@@ -58,8 +77,9 @@ class GioHangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(gioHang $gioHang)
+    public function destroy($id)
     {
-        //
+        $gioHang=gioHang::find($id)->delete();
+        return back();
     }
 }

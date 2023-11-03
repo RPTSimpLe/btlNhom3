@@ -116,7 +116,11 @@
                             <select id="selectSearch" onchange="selectName(this);" class="form-control" required>
                                 <option id="" value="">Tìm kiếm theo:</option>
                                 <option id="" value="id">Id</option>
-                                <option id="" value="ten">Tên danh mục</option>
+                                <option id="" value="tenDanhMuc">Danh mục</option>
+                                <option id="" value="ten">Tên</option>
+                                <option id="" value="tonKho">Tồn kho</option>
+                                <option id="" value="giaNhap">Giá nhập</option>
+                                <option id="" value="giaBan">Giá bán</option>
                             </select>
                         </div>
                         <div class="col-2"><button type="submit" class="btn btn-primary">Tìm kiếm</button> </div>
@@ -126,6 +130,7 @@
                     <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Danh mục</th>
                         <th >Tên</th>
                         <th>Tồn kho</th>
                         <th>Giá nhập</th>
@@ -141,14 +146,9 @@
                         @endphp
                     @endif
                     @foreach ($sanPhams as $sanPham)
-                        @if($searchSanPhams!=null)
-                            @php
-                                $sanPham->created_at=\Carbon\Carbon::parse($sanPham->created_at)->format("d/m/Y");
-                                $sanPham->updated_at=\Carbon\Carbon::parse($sanPham->updated_at)->format("d/m/Y");
-                            @endphp
-                        @endif
                         <tr>
                             <td style="max-width: 45px; overflow-x: ">{{ $sanPham->id }}</td>
+                            <td>{{ $sanPham->tenDanhMuc }}</td>
                             <td >{{ $sanPham->ten }}</td>
                             <td >{{ $sanPham->tonKho }}</td>
                             <td >{{ $sanPham->giaNhap }}</td>

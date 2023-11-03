@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="row form-group" style="margin-left: 93%;">
-        <button type="submit" class="btn btn-primary">Tạo lớp</button>
+        <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
     </div>
 </form>
 @endsection

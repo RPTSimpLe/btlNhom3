@@ -60,20 +60,12 @@ class User extends Authenticatable
     ];
 
     protected $primaryKey='id';
-    public function teachers()
-    {
-        return $this->hasOne(Teacher::class);
-    }
-    public function students()
-    {
-        return $this->hasOne(Student::class,"user_id","id");
-    }
-    public function notis()
-    {
-        return $this->hasOne(Noti::class);
-    }
     public function images()
     {
         return $this->hasOne(Image::class,"user_id","id");
+    }
+    public function hoaDons()
+    {
+        return $this->hasMany(hoaDon::class,"user_id","id");
     }
 }

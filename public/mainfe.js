@@ -11,22 +11,6 @@ function get(path, param = {}){
         headers: myHeader,
     }).then(response => response.json())
 }
-
-//hiện danh sách lớp khi chọn khoa
-function renderSelectGrade(e) {
-    let selectGrade=document.getElementById("selectGrade")
-    if(e.value != ""){
-        get("/admins/admin/searchByDepartment/"+e.value).
-        then(grades=>
-        {
-            let html = `<option value="">Chọn lớp</option>`
-            for (const grade of grades) {
-                html+=`<option value="${grade.id}">${grade.name}</option>`
-                selectGrade.innerHTML= html;
-            }
-        })
-    }
-}
 //lấy link ảnh
 function getLinkImg(id){
     image.src=""

@@ -4,17 +4,10 @@ use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DanhMucController;
-use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ImageController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\GradeController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\DepartmentSubjectController;
-use App\Http\Controllers\TimetableController;
-use App\Http\Controllers\LessonController;
-use App\Http\Controllers\SubjectsStudentsController;
+use App\Http\Controllers\GioHangController;
+use App\Http\Controllers\DanhMucController;
+use App\Http\Controllers\HoaDonController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +27,13 @@ Route::get('/dashboard', function () {
 
     return view('dashboard');
 })->name('dashboard');
+
 Route::get("/danhSachDanhMuc",[DanhMucController::class,"showall"]);
-Route::get("/category",function (){return view("user.category.category");});
+Route::get("/danhMuc",function (){return view("user.danhMuc.danhMuc");});
+Route::get("/timKiemBangIdDanhMuc/{id}",[\App\Http\Controllers\SanPhamController::class,"timKiemBangIdDanhMuc"]);
+Route::get("/showAllSP",[\App\Http\Controllers\SanPhamController::class,"showAll"]);
+Route::get("/chiTietSanPham/{id}",[\App\Http\Controllers\SanPhamController::class, "chiTiet"]);
+Route::get("/timKiemSP/{ten}",[\App\Http\Controllers\SanPhamController::class,"timKiemSP"]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // các route chỉ được truy cập bởi user có quyền admin
@@ -63,68 +61,32 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/admin/taoSanPham",[\App\Http\Controllers\SanPhamController::class,"index"]);
         Route::post("/admin/taoSanPham",[\App\Http\Controllers\SanPhamController::class,"store"]);
         Route::get("/admin/danhSachSanPham",[\App\Http\Controllers\SanPhamController::class,"show"]);
-        Route::get("/admin/danhSachSanPham",[\App\Http\Controllers\SanPhamController::class,"show"]);
         Route::patch("/admin/updateSanPham/{id}",[\App\Http\Controllers\SanPhamController::class,"update"]);
         Route::delete("/admin/deleteSanPham/{id}",[\App\Http\Controllers\SanPhamController::class,"destroy"]);
+        Route::get("/admin/searchSanPham",[\App\Http\Controllers\SanPhamController::class,"search"]);
 
-        Route::get("admin/createDepartment",function (){return view("admin.department.createDepartment");});
-        Route::post("admin/createDepartment",[DepartmentController::class,"store"]);
-        Route::get("admin/listDepartment",[DepartmentController::class,"show"]);
-        Route::patch("admin/updateDepartment/{id}",[DepartmentController::class,"update"]);
-        Route::delete("/admin/deleteDepartment/{id}",[DepartmentController::class,"destroy"]);
-        Route::get("/admin/searchDepartment", [DepartmentController::class,"search"]);
-        Route::get("admin/searchTeacherByDepartment/{departmentId}", [TeacherController::class,"searchByDepartment"]);
-
-        Route::get("admin/createGrade",[GradeController::class,"index"]);
-        Route::post("admin/createGrade",[GradeController::class,"store"]);
-        Route::get("admin/listGrade",[GradeController::class,"show"]);
-        Route::get("admin/searchByDepartment/{departmentId}", [GradeController::class,"searchByDepartment"]);
-        Route::patch("/admin/updateGrade/{id}",[GradeController::class,"update"]);
-        Route::get("/admin/searchGrade",[GradeController::class,"search"]);
-        Route::delete("/admin/deleteGrade/{id}",[GradeController::class,"destroy"]);
-
-        Route::get("/admin/createSubject", [SubjectController::class,"index"]);
-        Route::post("/admin/createSubject", [SubjectController::class,"store"]);
-        Route::post("/admin/createDepartmentSubject", [DepartmentSubjectController::class,"store"]);
-        Route::patch("/admin/updateSubject/{id}", [SubjectController::class,"update"]);
-        Route::get("/admin/renderDepartmentSubject/{id}",[DepartmentSubjectController::class,"renderDepartmentBySubject"]);
-        Route::get("/admin/listSubject",[SubjectController::class,"show"]);
-        Route::get("/admin/listDepartmentSubject",[DepartmentSubjectController::class,"show"]);
-        Route::delete("/admin/deleteSubject/{id}",[SubjectController::class,"destroy"]);
-        Route::get("/admin/searchSubject",[SubjectController::class,"search"]);
-        Route::get("/admin/renderSubject",[SubjectController::class,"renderSubject"]);
-        Route::get("/admin/renderDepartment",[DepartmentController::class,"renderDepartment"]);
-        Route::patch("/admin/updateDepartmentSubject/{id}",[DepartmentSubjectController::class,"update"]);
-        Route::delete("/admin/deleteSubject/{id}",[SubjectController::class,"destroy"]);
-        Route::delete("/admin/deleteDeSubject/{id}",[DepartmentSubjectController::class,"destroy"]);
-
-
-        Route::get("/admin/createTimeTable", [TimetableController::class,'index']);
-        Route::post("/admin/createTimeTable", [TimetableController::class,'store']);
-        Route::get("/admin/renderDepartmentSubjectByDeId/{id}",[DepartmentSubjectController::class,"renderDepartmentSubjectByDeId"]);
-        Route::get("/admin/showLesson",[LessonController::class,"show"]);
-        Route::get("/admin/showTimeTable/{id}",[TimetableController::class,"show"]);
-        Route::get("/admin/detailTimeTable/{id}",[TimetableController::class,"detail"]);
-        Route::patch("/admin/updateTimeTable/{id}", [TimetableController::class,'update']);
-        Route::delete("/admin/destroyTimetable/{id}", [TimetableController::class,'destroy']);
-        Route::delete("/admin/destroyAllTimetableByGrade/{id}", [TimetableController::class,'destroyAll']);
-//        Route::get("/admin/find/{gradeId}", [TimetableController::class,'studentFee']);
-
-        Route::get("admin/checkPoint",[SubjectsStudentsController::class,"index"]);
-        Route::get("/admin/renderSubjecByGradeId/{gradeId}",[SubjectsStudentsController::class,"renderSubjecByGradeId"]);
-        Route::get("/admin/showPoint/{subjectId}/{gradeId}",[SubjectsStudentsController::class,"show"]);
-        Route::patch("/admin/updatePoint/{id}",[SubjectsStudentsController::class,"updatePoint"]);
-        Route::get("/admin/searchPoint",[SubjectsStudentsController::class,"search"]);
+        Route::get("/admin/donHang",[HoaDonController::class,"adminShow"]);
+        Route::get("/admin/chiTietDon/{id}",[HoaDonController::class,"chiTietHoaDonAD"]);
+        Route::get("/admin/searchHoaDon",[HoaDonController::class,"search"]);
     });
 
     // các route chỉ được truy cập bởi user
     Route::middleware(['can:user'])->prefix("user")->group(function () {
+        Route::get("/thongTin",[UserController::class,"profileKhach"]);
+        Route::post("/capNhat/{id}",[UserController::class,"update"]);
 
+        Route::get("/hoaDon",function (){return view("user.thanhToan.hoaDon");});
 
-        Route::get("/cart",function (){return view("user.cart.cart");});
-        Route::get("/datHang",function (){return view("user.delivery.datHang");});
-        Route::get("/bill",function (){return view("user.delivery.bill");});
-        Route::get("/donHangDaDat",function (){return view("user.bill.donHangDaDat");});
+        Route::get("/gioHang",[GioHangController::class,"index"]);
+        Route::get("/themVaoGio",[GioHangController::class,"store"]);
+        Route::delete("/xoaGioHang/{id}",[GioHangController::class,"destroy"]);
+
+        Route::get("/datHang",[HoaDonController::class,"index"]);
+
+        Route::get("/chiTietDon/{id}",[\App\Http\Controllers\HoaDonController::class,"hoaDon"]);
+        Route::post("/themHoaDon",[\App\Http\Controllers\HoaDonController::class,"store"]);
+
+        Route::get("/donHangDaDat",[HoaDonController::class,"show"]);
     });
 
     Route::put("/profile/password",[UserController::class,"updatePass"]);

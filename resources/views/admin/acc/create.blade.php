@@ -58,16 +58,6 @@
             </div>
         </div>
         <div class="row form-group">
-            <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Địa chỉ: </label></div>
-            <div class="col-12 col-md-9">
-                <input type="text" id="text-input" placeholder="Nhập địa chỉ" class="form-control" name="diaChi">
-                @error('name')
-                <small class="form-text">{{ $message }}</small>
-                @enderror
-            </div>
-        </div>
-
-        <div class="row form-group">
             <div class="col col-md-3"><label for="password-input" class=" form-control-label">Mật khẩu: </label></div>
             <div class="col-12 col-md-9"><input type="password" id="password-input" name="matKhau" placeholder="Nhập mật khẩu" class="form-control">
                 @error('password')
@@ -101,7 +91,7 @@
                 @enderror
             </div>
         </div>
-        <div class="row form-group" style="margin-left: 93%;">
+        <div class="row form-group" style="float: right">
             <button type="submit" class="btn btn-primary">Tạo tài khoản</button>
         </div>
     </form>

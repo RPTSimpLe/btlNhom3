@@ -9,6 +9,33 @@
 <link rel="stylesheet" href="{{asset("user/css/ion.rangeSlider.skinFlat.css")}} "/>
 <link rel="stylesheet" href="{{asset("user/css/magnific-popup.css")}} ">
 <link rel="stylesheet" href="{{asset("user/css/main.css")}} ">
+<style>
+    .searchhien{
+        background-color: white;
+        border-bottom: 1px solid black;
+        text-align: left;
+        border-radius: 4px;
+    }
+    .searchhien a{ color: black}
+    .ti-bag{
+        position: relative;
+    }
+    .ti-bag span{
+        position: absolute;
+        top: 7px;
+        font-size: 10px;
+        right: -7px;
+        background: #ffa500;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        text-align: center;
+    }
+    .header_area .navbar .nav.navbar-nav.navbar-right li .ti-bag span{
+        line-height: normal;
+        color: white;
+    }
+</style>
 <header class="header_area sticky-header">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light main_box">
@@ -25,7 +52,7 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="/dashboard" style="color: #222222;">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/category">Danh mục sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/danhMuc">Danh mục sản phẩm</a></li>
                        @if(\Illuminate\Support\Facades\Auth::user()==null)
                             <li class="nav-item"><a class="nav-link" href="/login">Đăng nhập</a></li>
                         @else
@@ -34,7 +61,8 @@
                                aria-expanded="false">Về bạn</a>
                             <ul class="dropdown-menu">
 
-                                <li class="nav-item"><a class="nav-link" href="/user/cart">Giỏ hàng</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/user/thongTin">Thông tin</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/user/gioHang">Giỏ hàng</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/user/donHangDaDat">Tất cả đơn hàng</a></li>
                                 <li class="nav-item">  <form id="logout" action="/logout" method="POST">
                                         @csrf
@@ -45,7 +73,11 @@
                        @endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="/user/cart" class="cart"><span class="ti-bag"></span></a></li>
+                                        @php
+                                            $user=\Illuminate\Support\Facades\Auth::user();
+                                            $count= \Illuminate\Support\Facades\DB::table("gio_hangs")->where("user_id","=",$user->id)->count();
+                                        @endphp
+                        <li class="nav-item"><a href="/user/gioHang" class="cart"><span class="ti-bag"><span>{{$count}}</span></span></a></li>
                         <li class="nav-item">
                             <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                         </li>
@@ -57,10 +89,12 @@
     <div class="search_input" id="search_input_box">
         <div class="container">
             <form class="d-flex justify-content-between">
-                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                <input type="text" class="form-control" id="search_input" placeholder="Tên sản phẩm" name="tenSP" onkeyup="timKiem(this.value)">
                 <button type="submit" class="btn"></button>
                 <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
             </form>
+        </div>
+        <div class="container " id="renderSP">
         </div>
     </div>
 </header>
@@ -149,4 +183,16 @@
 <script src="{{asset("user/js/gmaps.min.js")}} "></script>
 <script src="{{asset("user/js/main.js")}} "></script>
 <script src="{{asset("mainfe.js")}} "></script>
+<script>
+    function timKiem(ten){
+        get("/timKiemSP/"+ten)
+            .then(sanPhams=>{
+                let html=""
+                for (const sanPham of sanPhams) {
+                    html+=`<div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}">${sanPham.ten} </a></div>`
+                }
+                document.getElementById("renderSP").innerHTML=html
+            })
+    }
+</script>
 @yield("src")

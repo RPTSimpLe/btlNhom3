@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("nhaSX");
             $table->integer("namSX");
             $table->string("tonKho");
-            $table->string('moTa');
+            $table->string('moTa',2000);
             $table->string("baoHanh");
             $table->bigInteger("giaBan");
             $table->bigInteger("giaNhap");

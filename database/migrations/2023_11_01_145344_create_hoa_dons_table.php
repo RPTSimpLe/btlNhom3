@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('hoa_dons', function (Blueprint $table) {
             $table->id();
-            $table->string("soLuong");
-            $table->string("tenSanPham");
-            $table->integer("gia");
-            $table->foreignId("chiTiet_id")->nullable()->constrained("chi_tiet_hoa_dons");
+            $table->string("diaChi");
+            $table->string("ghiChu");
+            $table->bigInteger("tongTien");
+            $table->integer("ship")->default(20000);
+            $table->foreignId("user_id")->nullable()->constrained();
             $table->timestamps();
         });
     }

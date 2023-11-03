@@ -89,15 +89,6 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Địa chỉ: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="diaChi"
-                                                                                   class="form-control diaChi">
-                                        @error('name')
-                                        <small class="form-text">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row form-group">
                                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện: </label>
                                     </div>
                                     <div class="col-12 col-md-9"><input type="file" id="file-input" name="img"
@@ -229,7 +220,6 @@
             let ngaySinh= document.querySelector(".ngaySinh")
             let hoTen= document.querySelector(".hoTen")
             let sDT= document.querySelector(".sDT")
-            let diaChi= document.querySelector(".diaChi")
             let email= document.querySelector(".email")
             let ids= document.querySelectorAll(".id")
             document.getElementById("formResetPass").action = "/admins/admin/resetpass/"+$user.id;
@@ -243,7 +233,6 @@
             ngaySinh.value= formatDate($user.ngaySinh)
             name.value = $user.name;
             email.value = $user.email;
-            diaChi.value = $user.diaChi;
             image.src=""
            getLinkImg($user.id)
         }

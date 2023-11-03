@@ -76,15 +76,6 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Địa chỉ: </label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="diaChi"
-                                                        value="{{ $user->diaChi }}" class="form-control">
-                        @error('diaChi')
-                        <small class="form-text">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row form-group">
                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện: </label>
                     </div>
                     <div class="col-12 col-md-9"><input type="file" id="file-input" name="img"
@@ -94,7 +85,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="row form-group" style="margin-left: 93%;">
+                <div class="row form-group" style="margin-left: 90%;">
                     <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </div>
             </form>
@@ -131,7 +122,7 @@
                                                         class="form-control">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" style="margin-left: 93%;">Thay đổi</button>
+                <button type="submit" class="btn btn-primary" style="margin-left: 90%;">Thay đổi</button>
             </form>
         </div>
 @endsection
