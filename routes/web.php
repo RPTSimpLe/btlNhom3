@@ -18,15 +18,15 @@ use App\Http\Controllers\HoaDonController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//trang chu
 Route::get('/', function () {
     return redirect("/dashboard");
 });
-
 Route::get('/dashboard', function () {
-
     return view('dashboard');
 })->name('dashboard');
+
+Route::post("/registerr",[UserController::class,"store"]);
 
 Route::get("/danhSachDanhMuc",[DanhMucController::class,"showall"]);
 Route::get("/danhMuc",function (){return view("user.danhMuc.danhMuc");});
@@ -68,6 +68,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/admin/donHang",[HoaDonController::class,"adminShow"]);
         Route::get("/admin/chiTietDon/{id}",[HoaDonController::class,"chiTietHoaDonAD"]);
         Route::get("/admin/searchHoaDon",[HoaDonController::class,"search"]);
+
+        Route::get("/admin/thongKe",[\App\Http\Controllers\ThongKeTongController::class,"index"]);
     });
 
     // các route chỉ được truy cập bởi user
@@ -95,5 +97,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get("/getLinkPro/{id}",[ImageController::class,"searchPro"]);
 
 });
- Route::post("/registerr",[UserController::class,"store"]);
+
 require __DIR__.'/auth.php';

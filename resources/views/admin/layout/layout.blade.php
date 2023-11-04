@@ -55,6 +55,9 @@
                 <li >
                     <a href="/admins/admin/donHang"> <i class="menu-icon fa fa-dashboard"></i>Đơn hàng</a>
                 </li>
+                <li >
+                    <a href="/admins/admin/thongKe"> <i class="menu-icon fa fa-dashboard"></i>Thống kê</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

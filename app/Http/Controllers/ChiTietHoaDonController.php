@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\chiTietHoaDon;
 use App\Models\gioHang;
 use App\Models\sanPham;
+use App\Models\thongKeTong;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,8 @@ class ChiTietHoaDonController extends Controller
             ->select("gio_hangs.*","san_phams.ten")
             ->join("san_phams","san_phams.id","=","sanPham_id")
             ->where("user_id","=",Auth::user()->id)->get();
+
+        $tongTienGioHang = 0;
         foreach ($gioHangs as $gioHang){
             $chiTiet=chiTietHoaDon::create([
                 "soLuong"=> $gioHang->soLuong,
@@ -43,6 +46,7 @@ class ChiTietHoaDonController extends Controller
                 "tienHang"=> $gioHang->tongTien,
                 "hoaDon_id" => $hoaDonId,
             ]);
+            $chiTiet->save();
 
             $sanPham= DB::table("san_phams")
                 ->where("id","=",$gioHang->sanPham_id)->first();
@@ -52,9 +56,15 @@ class ChiTietHoaDonController extends Controller
                 "tonKho" => $tonKho,
             ]);
 
-            $chiTiet->save();
+            $thongKeThu= new ThongKeThuController();
+            $thongKeThu->update($gioHang->ten,$gioHang->soLuong,$gioHang->tongTien);
+            $tongTienGioHang+= intval($gioHang->tongTien);
+
             gioHang::find($gioHang->id)->delete();
         }
+
+        $thongKeTong= new ThongKeTongController();
+        $thongKeTong->updateTongThu($tongTienGioHang);
     }
     /**
      * Display the specified resource.

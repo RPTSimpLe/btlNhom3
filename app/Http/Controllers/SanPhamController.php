@@ -50,6 +50,9 @@ class SanPhamController extends Controller
         $sanPham->save();
         $img = new ImageController();
         $img->storeSanPham($request,$sanPham->id);
+
+        $thongKeChi=new ThongKeChiController();
+        $thongKeChi->store($request,$sanPham->updated_at);
         return redirect("/admins/admin/danhSachSanPham");
     }
 
@@ -65,13 +68,20 @@ class SanPhamController extends Controller
         return view("admin.sanPham.danhSachSanPham",compact("sanPhams"));
     }
 
-    public function showAll()
+    public function showAll(Request $request)
     {
+        $firstItems = (intval($request->page)-1)*intval($request->limit);
         $sanPhams = DB::table("san_phams")
             ->select("san_phams.*","images.url")
             ->join("images","images.sanPham_id","=","san_phams.id")
+            ->skip($firstItems)
+            ->take($request->limit)
             ->get();
-        return $sanPhams;
+        $count = DB::table("san_phams")
+            ->select("san_phams.*","images.url")
+            ->join("images","images.sanPham_id","=","san_phams.id")
+            ->get()->count();
+        return  [$sanPhams,$count];
     }
     /**
      * Show the form for editing the specified resource.
@@ -87,6 +97,8 @@ class SanPhamController extends Controller
     public function update(Request $request, $id)
     {
         $sanPham= sanPham::find($id);
+        $tenCu=$sanPham->ten;
+
         $sanPham->update([
             'ten' => $request->ten,
             "nhaSX" => $request->nhaSX,
@@ -97,6 +109,15 @@ class SanPhamController extends Controller
             "giaNhap" => $request->giaNhap,
             "giaBan" => $request->giaBan,
         ]);
+        $ngayMoi=$sanPham->updated_at;
+
+        $thongKeChi=DB::table("thong_ke_chis")
+            ->where("tenSanPham","=",$tenCu)
+            ->latest()->first();
+        if ($thongKeChi!=null){
+            $thongKeChi=new ThongKeChiController();
+            $thongKeChi->update($tenCu,$request,$ngayMoi);
+        }
 
         if(isset($request->img)){
             $img = new ImageController();

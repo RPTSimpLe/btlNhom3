@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="{{asset("user/css/ion.rangeSlider.css")}} " />
 <link rel="stylesheet" href="{{asset("user/css/ion.rangeSlider.skinFlat.css")}} "/>
 <link rel="stylesheet" href="{{asset("user/css/magnific-popup.css")}} ">
+<link rel="stylesheet" href="{{asset("simplePagination.min.css")}}"
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{asset("user/css/main.css")}} ">
 <style>
     .searchhien{
@@ -184,6 +186,7 @@
 <script src="{{asset("https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE")}} "></script>
 <script src="{{asset("user/js/gmaps.min.js")}} "></script>
 <script src="{{asset("user/js/main.js")}} "></script>
+<script src="{{asset("jquery.simplePagination.min.js")}}"></script>
 <script src="{{asset("mainfe.js")}} "></script>
 <script>
     function timKiem(ten){

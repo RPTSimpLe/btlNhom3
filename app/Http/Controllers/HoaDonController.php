@@ -53,6 +53,7 @@ class HoaDonController extends Controller
         $hoaDon->save();
         $chitiet= new ChiTietHoaDonController();
         $chitiet->store($request,$hoaDon->id);
+
         return redirect("/user/chiTietDon/$hoaDon->id");
     }
 

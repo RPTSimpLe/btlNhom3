@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('thong_ke_chis', function (Blueprint $table) {
+        Schema::create('thong_ke_thus', function (Blueprint $table) {
             $table->id();
             $table->string("tenSanPham");
-            $table->bigInteger("soLuongNhap");
-            $table->bigInteger("giaNhap");
-            $table->bigInteger("tongTienNhapHang");
+            $table->bigInteger("soLuongBan");
+            $table->bigInteger("giaBan");
+            $table->bigInteger("tongTienBan");
             $table->foreignId("thongKeTong_id")->nullable()->constrained("thong_ke_tongs","id");
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('thong_ke');
+        Schema::dropIfExists('thong_ke_thu');
     }
 };
