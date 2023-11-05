@@ -10,6 +10,25 @@
 <body>
 @extends("user.layout.layout")
 @section("page")
+    <style>
+        .price-range-area{
+            padding: 0px;
+        }
+        .price-range-area .price,.price-range-area .value-wrapper .to{
+            color: black;
+            margin-top: 7px ;
+        }
+        .priceInput{
+            width: 87%;
+        }
+        .price-range-area .price, .price-range-area .value-wrapper .to{
+            margin-left: 0px;
+        }
+        .sidebar-filter .head{
+            line-height: normal;
+            padding: 0px;
+        }
+    </style>
     <!-- Start Banner Area -->
     <section class="banner-area organic-breadcrumb">
         <div class="container">
@@ -37,6 +56,15 @@
                 <div class="sidebar-filter mt-50">
                     <div class="top-filter-head"></div>
                     <div class="common-filter">
+                        <div class="head">Tìm kiếm theo giá</div>
+                        <div class="price-range-area">
+                            <div class="value-wrapper ">
+                                <label class="price">Từ</label>
+                                <input type="number" id="tu" style="margin-left: 3%;" class="priceInput" value="0" onkeyup="timKiemTheoKhoang()"> <br>
+                                <label class="to">Đến</label>
+                                <input type="number" id="den" class="priceInput" max="200000000" value="200000000" onkeyup="timKiemTheoKhoang()">
+                            </div>
+                        </div>
                     </div>
                     <div class="common-filter">
 
@@ -60,7 +88,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section("src")
     <script>
@@ -68,29 +95,10 @@
             .then(danhMucs =>{
                     let html=``
                 for (const danhMuc of danhMucs) {
-                    html+= `  <li class="main-nav-list child"><a href="#" id="${danhMuc.id}" onclick="hienSP(this.id)">${danhMuc.ten}</a></li>`
+                    html+= `  <li class="main-nav-list child"><a href="#" id="${danhMuc.id}" onclick="timKiemTheoDanhMuc(this.id)">${danhMuc.ten}</a></li>`
                 }
                 document.querySelector(".main-categories").innerHTML=html
-                huySuKienTheA()
             })
-        function hienSP(e){
-            get("/timKiemBangIdDanhMuc/"+e)
-                .then(sanPhams=>{
-                    render(sanPhams)
-                })
-        }
-        function huySuKienTheA(){
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const links = section.querySelectorAll('a');
-                links.forEach(link => {
-                    // Hủy sự kiện reload khi click vào thẻ a
-                    link.addEventListener('click', (event) => {
-                        event.preventDefault();
-                    });
-                });
-            });
-        }
         function render(sanPhams){
             let html=``
             for (const sanPham of sanPhams) {
@@ -126,6 +134,8 @@
         }
         const limit = 6
         const _$ = $;
+
+        //phanTrang
         function showPagination({
                                     totalItems,
                                     limit,
@@ -141,22 +151,36 @@
                 onPageClick: onPageClick
             });
         }
-        function phanTrangSp({page, limit}) {
-            get(`/showAllSP?page=${page}&limit=${limit}`)
+
+        function phanTrangSp({page, limit,idDanhMuc="",tu="",den=""}) {
+            get(`/showAllSP?page=${page}&limit=${limit}&idDanhMuc=${idDanhMuc}&tu=${tu}&den=${den}`)
                 .then(sPs => {
                     render(sPs[0])
-                    _$("#phanTrang").pagination("destroy");
 
+                    idDanhMucSP= sPs[2]
+                    giatu=sPs[3]
+                    giaden=sPs[4]
+
+                    _$("#phanTrang").pagination("destroy");
                     showPagination({
                         totalItems: sPs[1],
                         limit,
                         currentPage: page,
                         onPageClick: function (pageNumber) {
-                            phanTrangSp({page: pageNumber, limit})
+                            phanTrangSp({page: pageNumber, limit,idDanhMuc: idDanhMucSP,tu: giatu,den: giaden})
 
                         }
                     })
                 })
+        }
+        function timKiemTheoKhoang(){
+            tu = document.getElementById("tu").value
+            den = document.getElementById("den").value
+
+            phanTrangSp({page:1, limit: limit, tu: tu, den:den})
+        }
+        function timKiemTheoDanhMuc(e){
+            phanTrangSp({page: 1, limit:limit, idDanhMuc: e})
         }
 
         phanTrangSp({

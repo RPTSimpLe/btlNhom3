@@ -47,4 +47,11 @@ function formatDate(olddate){
     return `${day}/${month}/${year}`;
 }
 
+$(".active-banner-slider").owlCarousel({
+    items:1,
+    autoplay: 0.1,
+    loop:true,
+    nav:false,
+    dots:false
+});
 

@@ -48,15 +48,7 @@ $(document).ready(function(){
     /*=================================
     Javascript for banner area carousel
     ==================================*/
-    $(".active-banner-slider").owlCarousel({
-        items:1,
-        autoplay:false,
-        autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText:["<img class='d-none' src='img/banner/prev.png'>","<img class='d-none' src='img/banner/next.png'>"],
-        dots:false
-    });
+
 
     /*=================================
     Javascript for product area carousel

@@ -103,9 +103,6 @@
             </form>
         </div>
         <div class="container " id="renderSP">
-            <div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}"> ${sanPham.ten} </a></div>
-            <div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}"> ${sanPham.ten} </a></div>
-            <div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}"> ${sanPham.ten} </a></div>
         </div>
     </div>
 </header>

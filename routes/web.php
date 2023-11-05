@@ -30,7 +30,7 @@ Route::post("/registerr",[UserController::class,"store"]);
 
 Route::get("/danhSachDanhMuc",[DanhMucController::class,"showall"]);
 Route::get("/danhMuc",function (){return view("user.danhMuc.danhMuc");});
-Route::get("/timKiemBangIdDanhMuc/{id}",[\App\Http\Controllers\SanPhamController::class,"timKiemBangIdDanhMuc"]);
+//Route::get("/timKiemBangIdDanhMuc/{id}",[\App\Http\Controllers\SanPhamController::class,"timKiemBangIdDanhMuc"]);
 Route::get("/showAllSP",[\App\Http\Controllers\SanPhamController::class,"showAll"]);
 Route::get("/chiTietSanPham/{id}",[\App\Http\Controllers\SanPhamController::class, "chiTiet"]);
 Route::get("/timKiemSP/{ten}",[\App\Http\Controllers\SanPhamController::class,"timKiemSP"]);

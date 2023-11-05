@@ -20,6 +20,7 @@ class SanPhamController extends Controller
     public function timKiemSP($ten){
         $sanPhams = DB::table("san_phams")
             ->where("ten","like","%".$ten."%")
+            ->take(6)
             ->get();
         return $sanPhams;
     }
@@ -71,6 +72,45 @@ class SanPhamController extends Controller
     public function showAll(Request $request)
     {
         $firstItems = (intval($request->page)-1)*intval($request->limit);
+        if($request->idDanhMuc!=""){
+            $idDanhMuc=$request->idDanhMuc;
+            $sanPhams = DB::table("san_phams")
+                ->select("san_phams.*","images.url")
+                ->leftJoin("danh_mucs","danhMuc_id","=","danh_mucs.id")
+                ->rightJoin("images","images.sanPham_id","=","san_phams.id")
+                ->where("danh_mucs.id","=",$request->idDanhMuc)
+                ->skip($firstItems)
+                ->take($request->limit)
+                ->get();
+
+            $count =  DB::table("san_phams")
+                ->select("san_phams.*","images.url")
+                ->leftJoin("danh_mucs","danhMuc_id","=","danh_mucs.id")
+                ->rightJoin("images","images.sanPham_id","=","san_phams.id")
+                ->where("danh_mucs.id","=",$request->idDanhMuc)
+                ->get()->count();
+            return  [$sanPhams,$count,$idDanhMuc,"",""];
+        }elseif($request->tu!="" && $request->den!=""){
+            $tu=$request->tu;
+            $den=substr($request->den,0, strlen($request->den) - 1);
+
+            $sanPhams = DB::table("san_phams")
+                ->select("san_phams.*","images.url")
+                ->join("images","images.sanPham_id","=","san_phams.id")
+                ->where("giaBan",">=",$request->tu)
+                ->where("giaBan","<=",$request->den)
+                ->skip($firstItems)
+                ->take($request->limit)
+                ->get();
+
+            $count =  DB::table("san_phams")
+                ->select("san_phams.*","images.url")
+                ->join("images","images.sanPham_id","=","san_phams.id")
+                ->where("giaBan",">=",$request->tu)
+                ->where("giaBan","<=",$request->den)
+                ->get()->count();
+            return  [$sanPhams,$count,"",$tu,$den];
+        }
         $sanPhams = DB::table("san_phams")
             ->select("san_phams.*","images.url")
             ->join("images","images.sanPham_id","=","san_phams.id")
@@ -81,7 +121,7 @@ class SanPhamController extends Controller
             ->select("san_phams.*","images.url")
             ->join("images","images.sanPham_id","=","san_phams.id")
             ->get()->count();
-        return  [$sanPhams,$count];
+        return  [$sanPhams,$count,"","",""];
     }
     /**
      * Show the form for editing the specified resource.
@@ -183,7 +223,6 @@ class SanPhamController extends Controller
             ->rightJoin("images","images.sanPham_id","=","san_phams.id")
             ->where("san_phams.id","=",$id)
             ->first();
-//        return $sanPham;
         return view("user.sanPham.chiTiet",compact("sanPham"));
     }
 }
