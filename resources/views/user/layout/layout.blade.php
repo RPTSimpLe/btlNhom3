@@ -14,11 +14,15 @@
 <style>
     .searchhien{
         background-color: white;
-        border-bottom: 1px solid black;
         text-align: left;
         border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 3px 3px 3px 8px;
     }
     .searchhien a{ color: black}
+    .searchhien:hover{
+        background-color: aqua;
+    }
     .ti-bag{
         position: relative;
     }
@@ -99,6 +103,9 @@
             </form>
         </div>
         <div class="container " id="renderSP">
+            <div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}"> ${sanPham.ten} </a></div>
+            <div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}"> ${sanPham.ten} </a></div>
+            <div class="searchhien"> <a href="/chiTietSanPham/${sanPham.id}"> ${sanPham.ten} </a></div>
         </div>
     </div>
 </header>
@@ -143,14 +150,14 @@
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">Instagram</h6>
                     <ul class="instafeed d-flex flex-wrap">
-                        <li><img src="{{asset("user/img/i1.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i2.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i3.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i4.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i5.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i6.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i7.jpg")}}" alt=""></li>
-                        <li><img src="{{asset("user/img/i8.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i1.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i2.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i3.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i4.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i5.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i6.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i7.jpg")}}" alt=""></li>
+                        <li><img style="height: 58px;width: 58px" src="{{asset("user/img/i8.jpg")}}" alt=""></li>
                     </ul>
                 </div>
             </div>

@@ -6,9 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-
-    </style>
 </head>
 <body>
 @extends("user.layout.layout")
@@ -113,10 +110,10 @@
                         <div class="col-lg-8 col-md-8">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img style="width: 100%;height: 250px;" class="img-fluid w-100" src="{{asset("user/img/category/4Asus.png")}}" alt="">
-                                <a href="user/img/category/4Asus.png" class="img-pop-up" target="_blank">
+                                <img class="img-fluid w-100" src="{{asset("user/img/category/c1.jpg")}}" alt="">
+                                <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
                                     <div class="deal-details">
-                                        <h6 class="deal-title">Laptop Gamming</h6>
+                                        <h6 class="deal-title">Laptop</h6>
                                     </div>
                                 </a>
                             </div>
@@ -124,10 +121,10 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" src="{{asset("user/img/category/3Hp.png")}}" alt="">
-                                <a href="user/img/category/3Hp.png" class="img-pop-up" target="_blank">
+                                <img class="img-fluid w-100" src="{{asset("user/img/category/c2.jpg")}}" alt="">
+                                <a href="user/img/category/c2.jpg" class="img-pop-up" target="_blank">
                                     <div class="deal-details">
-                                        <h6 class="deal-title">Laptop HP</h6>
+                                        <h6 class="deal-title">Laptop</h6>
                                     </div>
                                 </a>
                             </div>
@@ -135,8 +132,8 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" src="{{asset("user/img/category/4Dell.png")}}" alt="">
-                                <a href="user/img/category/4Dell.png" class="img-pop-up" target="_blank">
+                                <img class="img-fluid w-100" src="{{asset("user/img/category/c3.jpg")}}" alt="">
+                                <a href="user/img/category/c3.jpg" class="img-pop-up" target="_blank">
                                     <div class="deal-details">
                                         <h6 class="deal-title">Laptop</h6>
                                     </div>
@@ -146,8 +143,7 @@
                         <div class="col-lg-8 col-md-8">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" style="width: 378px;
-    padding-left: 150px;" src="{{asset("user/img/category/4Asus.png")}}" alt="">
+                                <img class="img-fluid w-100" src="{{asset("user/img/category/c4.jpg")}}" alt="">
                                 <a href="user/img/category/c4.jpg" class="img-pop-up" target="_blank">
                                     <div class="deal-details">
                                         <h6 class="deal-title">Laptop</h6>
@@ -160,8 +156,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-deal">
                         <div class="overlay"></div>
-                        <img class="img-fluid w-100" src="{{asset("user/img/category/6MSigaming.jpg")}}" alt="">
-                        <a href="user/img/category/6MSigaming.jpg" class="img-pop-up" target="_blank">
+                        <img class="img-fluid w-100" src="{{asset("user/img/category/c5.jpg")}}" alt="">
+                        <a href="user/img/category/c5.jpg" class="img-pop-up" target="_blank">
                             <div class="deal-details">
                                 <h6 class="deal-title">Laptop</h6>
                             </div>
@@ -187,7 +183,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img  style="width: 90px;" src="{{asset("user/img/acer1.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r1.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -199,7 +195,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/asus1.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r2.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -211,7 +207,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/asus2.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r3.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -223,7 +219,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/dell1.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r5.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -235,7 +231,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/dell2.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r6.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -247,7 +243,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/dell3.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r7.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -259,19 +255,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/hp1.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">BLaptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/hp2.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r9.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -283,7 +267,19 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 90px;" src="{{asset("user/img/asus3.jpg")}}" alt=""></a>
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r10.jpg")}}" alt=""></a>
+                                <div class="desc">
+                                    <a href="#" class="title">Laptop</a>
+                                    <div class="price">
+                                        <h6>$189.00</h6>
+                                        <h6 class="l-through">$210.00</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="single-related-product d-flex">
+                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r11.jpg")}}" alt=""></a>
                                 <div class="desc">
                                     <a href="#" class="title">Laptop</a>
                                     <div class="price">
@@ -298,7 +294,7 @@
                 <div class="col-lg-3">
                     <div class="ctg-right">
                         <a href="#" target="_blank">
-                            <img class="img-fluid d-block mx-auto" src="{{asset("user/img/category/3LG.png")}}" alt="">
+                            <img class="img-fluid d-block mx-auto" src="{{asset("user/img/category/c5.jpg")}}" alt="">
                         </a>
                     </div>
                 </div>
