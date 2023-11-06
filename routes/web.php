@@ -8,6 +8,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\GioHangController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\HoaDonController;
+use App\Http\Controllers\DanhGiaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +31,7 @@ Route::post("/registerr",[UserController::class,"store"]);
 
 Route::get("/danhSachDanhMuc",[DanhMucController::class,"showall"]);
 Route::get("/danhMuc",function (){return view("user.danhMuc.danhMuc");});
-//Route::get("/timKiemBangIdDanhMuc/{id}",[\App\Http\Controllers\SanPhamController::class,"timKiemBangIdDanhMuc"]);
+
 Route::get("/showAllSP",[\App\Http\Controllers\SanPhamController::class,"showAll"]);
 Route::get("/chiTietSanPham/{id}",[\App\Http\Controllers\SanPhamController::class, "chiTiet"]);
 Route::get("/timKiemSP/{ten}",[\App\Http\Controllers\SanPhamController::class,"timKiemSP"]);
@@ -70,6 +71,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/admin/searchHoaDon",[HoaDonController::class,"search"]);
 
         Route::get("/admin/thongKe",[\App\Http\Controllers\ThongKeTongController::class,"index"]);
+
     });
 
     // các route chỉ được truy cập bởi user
@@ -89,6 +91,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post("/themHoaDon",[\App\Http\Controllers\HoaDonController::class,"store"]);
 
         Route::get("/donHangDaDat",[HoaDonController::class,"show"]);
+
+        Route::get("/danhGia/{tenSP}",[DanhGiaController::class,"chiTiet"]);
+        Route::post("/themDanhGia",[DanhGiaController::class,"store"]);
+
     });
 
     Route::put("/profile/password",[UserController::class,"updatePass"]);

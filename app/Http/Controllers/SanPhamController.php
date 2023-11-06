@@ -223,6 +223,22 @@ class SanPhamController extends Controller
             ->rightJoin("images","images.sanPham_id","=","san_phams.id")
             ->where("san_phams.id","=",$id)
             ->first();
-        return view("user.sanPham.chiTiet",compact("sanPham"));
+        $danhGias = DB::table("danh_gias")
+            ->select("users.*","danh_gias.*")
+            ->leftJoin("users","users.id","=","danh_gias.user_id")
+            ->where("danh_gias.sanPham_id","=",$id)->get();
+        $tbc=0;
+        foreach ($danhGias as $danhGia) {
+            $tbc+=floatval($danhGia->soSao);
+        }
+        $tbc= floatval($tbc/count($danhGias));
+
+        $demSoSao=[];
+        for ($i = 1; $i <= 5; $i++) {
+            $demSao = DB::table("danh_gias")
+                ->where("soSao","=",$i)->count();
+            $demSoSao[]=$demSao;
+        }
+        return view("user.sanPham.chiTiet",compact("sanPham","danhGias","tbc","demSoSao"));
     }
 }
