@@ -40,7 +40,6 @@ class UserController extends Controller
             "vaiTro" => $request->vaiTro,
             "sDT" => $request->sDT,
             "email" => $request->email,
-            "diaChi" => $request->diaChi,
             "ngaySinh" => $request->ngaySinh,
         ]);
         $user->save();
