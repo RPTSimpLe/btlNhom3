@@ -36,7 +36,7 @@
                             từ những dòng sản phẩm giá rẻ cho đến những chiếc máy cao cấp với những tính năng tiên tiến nhất.</p>
                         <div class="product_count">
                             <label for="qty">Số lượng:</label>
-                            <input type="number" name="qty" id="sst" maxlength="12" value="1" onkeyup="soLuong(this.value)" title="Quantity:" class="input-text qty">
+                            <input type="number" name="qty" id="sst" maxlength="12" value="1" onclick="soLuong(this.value)" onkeyup="soLuong(this.value)" title="Quantity:" class="input-text qty">
                         </div>
                         <div class="card_area d-flex align-items-center">
                             <a class="primary-btn" id="gioHang" href="/user/themVaoGio?sanPhamId={{$sanPham->id}}&soLuong=1&gia={{$sanPham->giaBan}}">Thêm vào giỏ hàng</a>

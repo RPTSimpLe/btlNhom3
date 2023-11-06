@@ -100,7 +100,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <strong class="col-2 card-title">Danh sách danh mục</strong>
+                    <strong class="col-2 card-title">Danh sách sản phẩm</strong>
                     @if (session('status') !== null)
                         <p class="col-10 text-sm text-success col-8">{{ session('status') }}</p>
                     @endif

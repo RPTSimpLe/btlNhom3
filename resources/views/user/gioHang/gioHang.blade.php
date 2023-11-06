@@ -59,7 +59,9 @@
                                 </td>
                                 <td>
                                     <div class="product_count">
-                                        <input type="number" name="qty" id="sst" maxlength="12" value="{{$cart->soLuong}}" onkeyup="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"
+                                        <input type="number" name="qty" id="sst" maxlength="12" value="{{$cart->soLuong}}"
+                                               onkeyup="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"
+                                               onclick="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"
                                                class="input-text qty">
                                     </div>
                                 </td>
