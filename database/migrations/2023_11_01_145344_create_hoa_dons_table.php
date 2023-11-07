@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("ghiChu");
             $table->bigInteger("tongTien");
             $table->integer("ship")->default(20000);
-            $table->foreignId("user_id")->nullable()->constrained();
+            $table->foreignId("user_id")->nullable()->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }

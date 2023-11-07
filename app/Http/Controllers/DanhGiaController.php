@@ -25,17 +25,23 @@ class DanhGiaController extends Controller
             ->leftJoin("users","users.id","=","danh_gias.user_id")
             ->where("danh_gias.sanPham_id","=",$sanPham->id)->get();
         $form="";
-        $tbc=0;
-        foreach ($danhGias as $danhGia) {
-            $tbc+=intval($danhGia->soSao);
-        }
-        $tbc/=count($danhGias);
 
-        $demSoSao=[];
-        for ($i = 1; $i <= 5; $i++) {
-            $demSao = DB::table("danh_gias")
-                ->where("soSao","=",$i)->count();
-            $demSoSao[]=$demSao;
+        $tbc=0;
+        $demSoSao=[0,0,0,0,0];
+        if (count($danhGias)>0){
+            foreach ($danhGias as $danhGia) {
+                $tbc+=intval($danhGia->soSao);
+            }
+            $tbc= number_format(floatval($tbc/count($danhGias)),2);
+
+                $demSoSao=[];
+            for ($i = 1; $i <= 5; $i++) {
+                $demSao = DB::table("danh_gias")
+                    ->where("soSao","=",$i)
+                    ->where("danh_gias.sanPham_id","=",$sanPham->id)
+                    ->count();
+                $demSoSao[]=$demSao;
+            }
         }
         return view("user.sanPham.chiTiet",compact("sanPham","danhGias","form","tbc","demSoSao"));
     }

@@ -228,16 +228,21 @@ class SanPhamController extends Controller
             ->leftJoin("users","users.id","=","danh_gias.user_id")
             ->where("danh_gias.sanPham_id","=",$id)->get();
         $tbc=0;
-        foreach ($danhGias as $danhGia) {
-            $tbc+=floatval($danhGia->soSao);
-        }
-        $tbc= floatval($tbc/count($danhGias));
+        $demSoSao=[0,0,0,0,0];
+        if (count($danhGias)>0){
+            foreach ($danhGias as $danhGia) {
+                $tbc+=floatval($danhGia->soSao);
+            }
+            $tbc= floatval($tbc/count($danhGias));
 
-        $demSoSao=[];
-        for ($i = 1; $i <= 5; $i++) {
-            $demSao = DB::table("danh_gias")
-                ->where("soSao","=",$i)->count();
-            $demSoSao[]=$demSao;
+            $demSoSao=[];
+            for ($i = 1; $i <= 5; $i++) {
+                $demSao = DB::table("danh_gias")
+                    ->where("soSao","=",$i)
+                    ->where("danh_gias.sanPham_id","=",$id)
+                    ->count();
+                $demSoSao[]=$demSao;
+            }
         }
         return view("user.sanPham.chiTiet",compact("sanPham","danhGias","tbc","demSoSao"));
     }

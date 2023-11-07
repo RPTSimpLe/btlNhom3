@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string("danhGia",2000);
             $table->integer("soSao");
-            $table->foreignId("user_id")->constrained();
-            $table->foreignId("sanPham_id")->constrained("san_phams","id");
+            $table->foreignId("user_id")->constrained()->onDelete("cascade");
+            $table->foreignId("sanPham_id")->constrained("san_phams","id")->onDelete("cascade");
             $table->timestamps();
         });
     }

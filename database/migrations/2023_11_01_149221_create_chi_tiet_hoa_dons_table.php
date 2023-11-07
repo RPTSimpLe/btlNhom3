@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("soLuong");
             $table->string("tenSanPham");
             $table->integer("tienHang");
-            $table->foreignId("hoaDon_id")->nullable()->constrained("hoa_dons","id");
+            $table->foreignId("hoaDon_id")->nullable()->constrained("hoa_dons","id")->onDelete("cascade");;
             $table->timestamps();
         });
     }
