@@ -20,6 +20,9 @@ git push origin main
 cập nhập lại git
 git pull
 
+cap nhat code sang tao:
+git pull origin sangTaoTinhNang
+
 fix lỗi seeder:
 
 1, mở file composer.json kiểm tra auto load
