@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\danhGia;
+use App\Models\sanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -66,7 +67,8 @@ class DanhGiaController extends Controller
             "sanPham_id"=> $request->idSP,
         ]);
         $danhGia->save();
-        return $danhGia;
+        $chiTietSP= new SanPhamController();
+        return $chiTietSP->chiTiet($request->idSP);
     }
 
     /**
