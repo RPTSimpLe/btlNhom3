@@ -77,7 +77,7 @@ class UserRequest extends FormRequest
 
             'min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
             'current_password.current_password' => 'Mật khẩu hiện tại không đúng',
-            'matKhau.confirmed' => 'Xác nhận mật khẩu không khớp',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp',
 
             'numeric' => 'Vui long nhập số!',
             'date' => 'Vui lòng nhập theo thứ tự DD/MM/YY',

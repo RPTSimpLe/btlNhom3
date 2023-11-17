@@ -14,6 +14,7 @@ class hoaDon extends Model
         "tongTien",
         "ship",
         "user_id",
+        "giamGia",
         "danhGia",
     ];
     public function users(){

@@ -51,7 +51,7 @@ class UserController extends Controller
 
     public function store(UserRequest $request){
         $validation = $request->validated();
-        $matkhau= $request->matKhau;
+        $matkhau= $request->password;
         $user=User::create([
             "name" => $request->name,
             "hoTen" => $request->hoTen,

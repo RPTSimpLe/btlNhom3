@@ -80,9 +80,9 @@
                         </tr>
                         <tr>
                             <td class="left">
-                                <strong>Discount (20%)</strong>
+                                <strong>Giam gia</strong>
                             </td>
-                            <td class="right">$1,699,40</td>
+                            <td class="right">{{$hoadon->giamGia}}%</td>
                         </tr>
                         <tr>
                             <td class="left">

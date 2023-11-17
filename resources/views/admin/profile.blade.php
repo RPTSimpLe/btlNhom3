@@ -11,6 +11,7 @@
 @extends("admin.layout.layout")
 @section("page")
     <div class="row">
+
         <div class="col col-2">
             <img style="height: 226.771px; width: 161.181px; object-fit: cover" src="{{ url('/images/' . $url) }}"
                  alt="Vui lòng thêm ảnh đại diện">

@@ -12,7 +12,12 @@
 @section("page")
     <section class="banner-area organic-breadcrumb">
         <div class="container">
-            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-between">
+                <div class="col-first">
+                    @if(\Illuminate\Support\Facades\Auth::user()->KHTT==1)
+                        <h3>Bạn là khách hàng thân thiết!</h3>
+                    @endif
+                </div>
                 <div class="col-first">
                     <h1>Thông tin</h1>
                     <nav class="d-flex align-items-center">
@@ -41,29 +46,47 @@
                             <div class="col-md-12 form-group">
                                 <label for="f-option">Tên đăng nhập: </label>
                                 <input type="text" class="form-control" id="company" name="name"  value="{{$user->name}}">
+                                @error('newName')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <input type="text" id="text-input" name="vaiTro"
                                    value="{{ $user->vaiTro }}" class="form-control" hidden="">
                             <div class="col-md-12 form-group">
                                 <label for="f-option">Họ tên: </label>
                                 <input type="text" class="form-control" id="company" name="hoTen" placeholder="Họ tên" value="{{$user->hoTen}}">
+                                @error('hoTen')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <label for="f-option3">Điện thoại: </label>
                                 <input type="text" class="form-control" id="number" name="sDT" value="{{$user->sDT}}">
+                                @error('sDT')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <label for="f-option3">Email: </label>
                                 <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
+                                @error('email')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <label for="f-option3">Ngày sinh: </label>
                                 <input type="date" class="form-control" id="add1" name="ngaySinh" value="{{$user->ngaySinh}}">
+                                @error('ngaySinh')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="f-option3">Ảnh đại diện: </label>
                                 <input type="file" id="file-input" name="img"
                                        class="form-control-file">
+                                @error('img')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <button style="margin-left: 89%" type="submit" class="btn btn-primary">Cập nhật</button>

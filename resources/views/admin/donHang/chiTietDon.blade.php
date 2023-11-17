@@ -40,7 +40,17 @@
                                     </td>
                                 </tr>
                             @endforeach
-
+                            <tr>
+                                <td>
+                                    <p>Giảm giá</p>
+                                </td>
+                                <td>
+                                    <h5></h5>
+                                </td>
+                                <td>
+                                    <p>{{$hoaDon->giamGia}}%</p>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <p>Phí ship</p>

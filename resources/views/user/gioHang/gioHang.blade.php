@@ -85,6 +85,24 @@
 
                             </td>
                             <td>
+                                <h5 >Giảm giá:</h5>
+                            </td>
+                            <td>
+                                @if(\Illuminate\Support\Facades\Auth::user()->KHTT==1)
+                                    <h5 id="giamGia">10%</h5>
+                                @else
+                                    <h5 id="giamGia">0%</h5>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
                                 <h5 >Tổng tiền:</h5>
                             </td>
                             <td>
@@ -127,6 +145,9 @@
             tiens= document.querySelectorAll(".tien")
             for (const tien of tiens ) {
                 tong+=parseInt(tien.innerHTML.slice(0, -1))
+            }
+            if (document.getElementById("giamGia").innerHTML.slice(0, -1)!=0){
+                tong = tong - tong/parseInt(document.getElementById("giamGia").innerHTML.slice(0, -1))
             }
             document.getElementById("tongTien").innerHTML=tong+"đ"
         }

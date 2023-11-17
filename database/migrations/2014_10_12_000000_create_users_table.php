@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('sDT');
             $table->string('password');
             $table->string('vaiTro');
+            $table->integer('KHTT')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

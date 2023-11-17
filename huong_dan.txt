@@ -36,21 +36,3 @@ git pull origin sangTaoTinhNang
 ```
 composer require barryvdh/laravel-dompdf
 ```
-
-3. Sau khi quá trình cài đặt hoàn tất, Laravel sẽ tự động phát hiện thư viện "barryvdh/laravel-dompdf".
-
-4. Bạn cần phải thêm dòng sau vào mảng `providers` trong file `config/app.php`:
-
-```php
-Barryvdh\DomPDF\ServiceProvider::class,
-```
-
-5. Bạn cũng cần phải thêm dòng sau vào mảng `aliases` trong file `config/app.php`:
-
-```php
-'PDF' => Barryvdh\DomPDF\Facade::class,
-```
-
-6. Bây giờ bạn đã có thể sử dụng "barryvdh/laravel-dompdf" để tạo file PDF từ các file view trong Laravel.
-
-Lưu ý: Đảm bảo rằng bạn đã cài đặt Composer trên máy tính của mình trước khi chạy lệnh cài đặt.

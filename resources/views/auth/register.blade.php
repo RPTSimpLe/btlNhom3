@@ -19,7 +19,9 @@
             border-radius: 5px;
             backdrop-filter: blur(20px);
         }
-
+        small{
+            color: red;
+        }
         button{
             margin-top: 20px;
             width:570px;
@@ -68,31 +70,52 @@
             <div class="form-group">
                 <label>Tên đăng nhập</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+                @error('name')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <input name="vaiTro" value="user" hidden>
             <div class="form-group">
                 <label>Họ và tên</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="hoTen">
+                @error('hoTen')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" id="exampleInputPassword1" name="email">
+                <input type="email" class="form-control" id="exampleInputPassword1" name="newEmail">
+                @error('newEmail')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label>Điện thoại</label>
                 <input type="number" class="form-control" id="exampleInputPassword1" name="sDT">
+                @error('sDT')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label>Ngày sinh</label>
                 <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="ngaySinh">
+                @error('ngaySinh')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label>Mật khẩu</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="matKhau">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                @error('password')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <div class="form-group">
                 <label>Nhập lại mật khẩu</label>
                 <input type="password" class="form-control" id="exampleInputPassword1"  name="password_confirmation">
+                @error('password_confirmation')
+                <small class="form-text">{{ $message }}</small>
+                @enderror
             </div>
             <button type="submit" class="btn btn-primary">Đăng ký</button>
             <div class="content">

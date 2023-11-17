@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("ghiChu");
             $table->bigInteger("tongTien");
             $table->integer("ship")->default(20000);
+            $table->integer("giamGia")->default(0);
             $table->string("danhGia")->nullable();
             $table->foreignId("user_id")->nullable()->constrained()->onDelete("cascade");
             $table->timestamps();

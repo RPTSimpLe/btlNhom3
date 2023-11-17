@@ -37,6 +37,7 @@ class User extends Authenticatable
         "sDT",
         "ngaySinh",
         'image_id',
+        "KHTT"
     ];
 
     /**

@@ -73,6 +73,9 @@
                                 <small class="form-text">{{ $message }}</small>
                                 @enderror
                             </div>
+                            @if(\Illuminate\Support\Facades\Auth::user()->KHTT==1)
+                                <input type="text" class="form-control" hidden value="10" name="giamGia" >
+                            @endif
                             <input type="number" class="d-none" id="tongTien1" value="" name="tongTien">
                         </form>
                     </div>
@@ -87,6 +90,11 @@
                             </ul>
                             <ul class="list list_2">
                                 <li><a href="#">Tiền hàng <span id="tienHang"></span></a></li>
+                                <li><a href="#">Giảm giá
+                                            @if(\Illuminate\Support\Facades\Auth::user()->KHTT==1)
+                                                <span id="giamGia">10%</span>
+                                            @endif
+                                        </a></li>
                                 <li><a href="#">Phí ship <span id="ship">20000đ</span></a></li>
                                 <li><a href="#">Tổng tiền <span id="tongTien"></span></a></li>
                             </ul>
@@ -124,6 +132,9 @@
                 tong+=parseInt(tien.innerHTML.slice(0, -1))
             }
             document.getElementById("tienHang").innerHTML=tong+"đ"
+            if (document.getElementById("giamGia").innerHTML.slice(0, -1)!=0){
+                tong = tong-tong/parseInt(document.getElementById("giamGia").innerHTML.slice(0, -1))
+            }
             document.getElementById("tongTien").innerHTML=tong+ship+"đ"
             document.getElementById("tongTien1").value=tong+ship
         }

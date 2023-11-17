@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\chiTietHoaDon;
 use App\Models\gioHang;
 use App\Models\hoaDon;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -50,11 +51,27 @@ class HoaDonController extends Controller
             "diaChi" => $request->diaChi,
             "ghiChu" => $request->ghiChu,
             "tongTien" => $request ->tongTien,
+            "giamGia" => $request->giamGia==10 ? 10:0,
             "user_id" => Auth::user()->id,
         ]);
         $hoaDon->save();
         $chitiet= new ChiTietHoaDonController();
         $chitiet->store($request,$hoaDon->id);
+
+        $hoaDonUsers = DB::table("hoa_dons")->where("user_id","=",Auth::user()->id)->get();
+        $y=0;
+        foreach ($hoaDonUsers as $hoaDonUser) {
+            $soMayDaMua = DB::table("chi_tiet_hoa_dons")->where("hoaDon_id","=",$hoaDonUser->id)->get();
+            foreach ($soMayDaMua as $x) {
+                $y+= intval($x->soLuong);
+            }
+        }
+        if($y >= 5){
+            $user = User::find(Auth::user()->id);
+            $user->update([
+               "KHTT" =>1,
+            ]);
+        }
 
         return redirect("/user/chiTietDon/$hoaDon->id");
     }
