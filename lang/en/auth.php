@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Mã hoặc mật khẩu sai',
+    'failed' => 'Tên đăng nhập hoặc mật khẩu sai',
     'password' => 'Sai mật khẩu. Vui lòng nhập lại!',
     'throttle' => 'Sai quá nhiều lần. Vui lòng đợi :seconds giây!',
 

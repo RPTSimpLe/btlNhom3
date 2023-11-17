@@ -10,16 +10,21 @@
 <body>
 @extends("user.layout.layout")
 @section("page")
+    <style>
+        .container .bannerc{ padding-top: 15px; height: 395px;}
+        .container .bannerc .img-fluid{ scale: 0.7; }
+        .container .bannerc p{font-size: 14px;}
+    </style>
     <section class="banner-area">
         <div class="container">
-            <div class="row fullscreen align-items-center justify-content-start">
+            <div class="row bannerc align-items-center justify-content-start">
                 <div class="col-lg-12">
                     <div class="active-banner-slider owl-carousel">
                         <!-- single-slide -->
                         <div class="row single-slide align-items-center d-flex">
                             <div class="col-lg-5 col-md-6">
                                 <div class="banner-content">
-                                    <h2>Laptop Asus TUF Gaming FX506HF-HN017W <br></h2>
+                                    <h4>Laptop Asus TUF Gaming FX506HF-HN017W <br></h4>
                                     <br>
                                     <p>Core i5 11400H/16GB/512GB/GeForce RTX 2050 4GB/Win11</p>
                                 </div>
@@ -34,7 +39,7 @@
                         <div class="row single-slide align-items-center d-flex">
                             <div class="col-lg-5 col-md-6">
                                 <div class="banner-content">
-                                    <h2>Laptop HP Pavilion <br> 14-dv2073TU <br></h2>
+                                    <h4>Laptop HP Pavilion <br> 14-dv2073TU <br></h4>
                                     <br>
                                     <p>Core i5 1235U/16GB/512GB/Win11</p>
                                 </div>

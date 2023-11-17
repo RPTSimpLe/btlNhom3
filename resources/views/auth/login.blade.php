@@ -46,9 +46,15 @@
                         @csrf
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên tài khoản" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập tên tài khoản'">
+                            @error('name')
+                            <small class="form-text">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="password" class="form-control" id="name" name="password" placeholder="Nhập mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập mật khẩu'">
+                            @error('password')
+                            <small class="form-text">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-md-12 form-group">
                             <div class="creat_account">

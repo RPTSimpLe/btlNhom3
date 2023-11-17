@@ -29,24 +29,24 @@
                                 @method('PATCH')
                                 <div class="row form-group d-none">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Id: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="id"
+                                    <div class="col-12 col-md-9 "><input type="text" id="text-input" name="id"
                                                                                    class="form-control id">
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên đăng nhập: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="name"
+                                    <div class="col-12 col-md-9 "><input type="text" id="text-input" name="newName"
                                                                                    class="form-control name">
-                                        @error('name')
+                                        @error('newName')
                                         <small class="form-text">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Họ Tên: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="hoTen"
+                                    <div class="col-12 col-md-9 "><input type="text" id="text-input" name="hoTen"
                                                                                    class="form-control hoTen">
-                                        @error('name')
+                                        @error('hoTen')
                                         <small class="form-text">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -59,6 +59,9 @@
                                             <option value="admin">admin</option>
                                             <option value="user">user</option>
                                         </select>
+                                        @error('vaiTro')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -72,18 +75,18 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Điện thoại: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="number" id="text-input" name="sDT"
+                                    <div class="col-12 col-md-9 "><input type="number" id="text-input" name="sDT"
                                                                                    class="form-control sDT">
-                                        @error('name')
+                                        @error('sDT')
                                         <small class="form-text">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ngày sinh: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="date" id="text-input" name="ngaySinh"
+                                    <div class="col-12 col-md-9 "><input type="date" id="text-input" name="ngaySinh"
                                                                                    class="form-control ngaySinh">
-                                        @error('name')
+                                        @error('ngaySinh')
                                         <small class="form-text">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -107,7 +110,7 @@
                                 @method('patch')
                                 <div class="row form-group d-none" >
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Id: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="id"
+                                    <div class="col-12 col-md-9 "><input type="text" id="text-input" name="id"
                                                                                    class="form-control id">
                                     </div>
                                 </div>
@@ -230,7 +233,7 @@
             hoTen.value= $user.hoTen
             sDT.value= $user.sDT
             vaiTro.value= $user.vaiTro
-            ngaySinh.value= formatDate($user.ngaySinh)
+            ngaySinh.value= $user.ngaySinh
             name.value = $user.name;
             email.value = $user.email;
             image.src=""

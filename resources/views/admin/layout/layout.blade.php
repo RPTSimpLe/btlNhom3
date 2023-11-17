@@ -53,6 +53,9 @@
                     </ul>
                 </li>
                 <li >
+                    <a href="/admins/admin/danhGia"> <i class="menu-icon fa fa-dashboard"></i>Đánh giá</a>
+                </li>
+                <li >
                     <a href="/admins/admin/donHang"> <i class="menu-icon fa fa-dashboard"></i>Đơn hàng</a>
                 </li>
                 <li >

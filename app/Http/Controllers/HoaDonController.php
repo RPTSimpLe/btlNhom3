@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\chiTietHoaDon;
 use App\Models\gioHang;
 use App\Models\hoaDon;
@@ -42,8 +43,9 @@ class HoaDonController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
+        $validate =$request->validated();
         $hoaDon= hoaDon::create([
             "diaChi" => $request->diaChi,
             "ghiChu" => $request->ghiChu,

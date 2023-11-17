@@ -35,7 +35,7 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            "string"=> "sdjfhsdf",
+            'required' => "Trường này không được bỏ trống",
             'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
         ];
     }

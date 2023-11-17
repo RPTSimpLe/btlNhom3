@@ -15,8 +15,8 @@
         <div class="row form-group">
             <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Tên danh mục: </label></div>
             <div class="col-12 col-md-9">
-                <input type="text" id="text-input" placeholder="Nhập tên danh mục" class="form-control" name="ten">
-                @error('name')
+                <input type="text" id="text-input" placeholder="Nhập tên danh mục" class="form-control" name="danhMuc">
+                @error('danhMuc')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
             </div>

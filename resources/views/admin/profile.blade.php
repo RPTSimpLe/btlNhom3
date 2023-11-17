@@ -30,9 +30,9 @@
                 @method('PATCH')
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên đăng nhập: </label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="name"
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="newName"
                                                         value="{{ $user->name }}" class="form-control">
-                        @error('name')
+                        @error('newName')
                         <small class="form-text">{{ $message }}</small>
                         @enderror
                     </div>
@@ -70,7 +70,7 @@
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ngày sinh: </label></div>
                     <div class="col-12 col-md-9"><input type="date" id="text-input" name="ngaySinh"
                                                         value="{{ $user->ngaySinh }}" class="form-control">
-                        @error('hoTen')
+                        @error('ngaySinh')
                         <small class="form-text">{{ $message }}</small>
                         @enderror
                     </div>

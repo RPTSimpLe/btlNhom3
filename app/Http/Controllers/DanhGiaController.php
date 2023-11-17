@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\danhGia;
+use App\Models\hoaDon;
 use App\Models\sanPham;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -58,7 +60,7 @@ class DanhGiaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $danhGia = danhGia::create([
             "soSao"=> $request->soSao,
@@ -67,6 +69,11 @@ class DanhGiaController extends Controller
             "sanPham_id"=> $request->idSP,
         ]);
         $danhGia->save();
+        $hoaDon = hoaDon::find($id);
+        $hoaDon->update([
+            "danhGia" => "đã đánh giá"
+        ]);
+
         $chiTietSP= new SanPhamController();
         return $chiTietSP->chiTiet($request->idSP);
     }
@@ -74,9 +81,10 @@ class DanhGiaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(danhGia $danhGia)
+    public function showALL()
     {
-        //
+        $danhGias= danhGia::all();
+        return view("admin.danhGia.danhGia",compact("danhGias"));
     }
 
     /**
@@ -98,8 +106,10 @@ class DanhGiaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(danhGia $danhGia)
+    public function destroy($id)
     {
-        //
+        $danhGia = danhGia::find($id);
+        $danhGia->delete();
+        return redirect("/admins/admin/danhGia");
     }
 }

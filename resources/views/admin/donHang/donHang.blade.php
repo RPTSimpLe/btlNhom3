@@ -109,7 +109,6 @@
                                     <p>Khách hàng</p>
                                 </td>
                                 <td>
-                                    <a href="/admins/admin/chiTietDon/{{$hoaDon->id}}" class="btn btn-info">Chi tiết</a>
                                 </td>
                                 <td>
                                     <p>{{isset($user) ? $user->hoTen : $hoaDon->hoTen}}</p>
@@ -119,6 +118,12 @@
                                 <td colspan="3">
                                     <p>Địa chỉ:</p>
                                     <p>{{$hoaDon->diaChi}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" >
+                                    <a style="float:right;" href="/admins/admin/inHoaDon/{{$hoaDon->id}}" class="btn btn-success">In hóa đơn</a>
+                                    <a style="float:right;margin-right: 5px" href="/admins/admin/chiTietDon/{{$hoaDon->id}}" class="btn btn-info">Chi tiết</a>
                                 </td>
                             </tr>
                             </tbody>

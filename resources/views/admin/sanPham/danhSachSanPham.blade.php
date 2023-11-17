@@ -32,49 +32,74 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="ten"
+                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="tenSPmoi"
                                                                                    class="form-control ten">
+                                        @error('tenSPmoi')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Hãng: </label></div>
                                     <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="nhaSX"
                                                                                    class="form-control nhaSX">
+                                        @error('nhaSX')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tồn kho: </label></div>
                                     <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="tonKho"
                                                                                    class="form-control tonKho">
+                                        @error('tonKho')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Bảo hành: </label></div>
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="text-input" class="form-control baoHanh" name="baoHanh">
+                                        @error('baoHanh')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá nhập: </label></div>
                                     <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="giaNhap"
                                                                                    class="form-control giaNhap">
+                                        @error('giaNhap')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá bán: </label></div>
                                     <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="giaBan"
                                                                                    class="form-control giaBan">
+                                        @error('giaBan')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Năm sản xuất: </label></div>
                                     <div class="col-12 col-md-9">
                                         <input type="text" id="text-input" class="form-control namSX" name="namSX">
+                                        @error('namSX')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả:</label></div>
-                                    <div class="col-12 col-md-9"><textarea name="moTa" id="textarea-input" rows="9"  class="form-control moTa"></textarea></div>
+                                    <div class="col-12 col-md-9"><textarea name="moTa" id="textarea-input" rows="9"  class="form-control moTa"></textarea>
+                                        @error('moTa')
+                                        <small class="form-text">{{ $message }}</small>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh đại diện: </label>

@@ -66,7 +66,9 @@
                                 </tbody>
                             </table>
                             <a style="float: right; margin-left: 10px" href="/user/chiTietDon/{{$hoaDon->id}}" class="genric-btn info circle">Chi tiết</a>
-                            <a style="float: right" class="genric-btn success circle arrow" href="/user/danhGia/{{$chiTiet->tenSanPham}}" >Đánh giá</a>
+                            @if($hoaDon->danhGia!="đã đánh giá")
+                                <a style="float: right" class="genric-btn success circle arrow" href="/user/danhGia/{{$chiTiet->tenSanPham}}" >Đánh giá</a>
+                            @endif
 
                         </div>
                     </div>

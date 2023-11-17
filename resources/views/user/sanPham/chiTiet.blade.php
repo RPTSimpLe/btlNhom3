@@ -128,7 +128,7 @@
                             <div class="col-lg-6">
                                 <div class="review_box">
                                     <h4>Thêm đánh giá</h4>
-                                    <form class="row contact_form" action="/user/themDanhGia" method="post" id="contactForm" method="post" novalidate="novalidate">
+                                    <form class="row contact_form" action="/user/themDanhGia/{{$sanPham->id}}" method="post" id="contactForm" method="post" novalidate="novalidate">
                                         @csrf
                                         <p style="padding-left: 15px;">Đánh giá của bạn: </p>
                                         <ul class="list">

@@ -24,40 +24,38 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' =>  ['sometimes', "required",'string', 'regex:/^[^0-9]+$/'],
-            'email' => ['sometimes', "required",'string','email'],
+            'name' =>  ['sometimes', "required",'string', Rule::unique('users', 'name')],
+            'hoTen' =>  ['sometimes', "required",'string', 'regex:/^[^0-9]+$/'],
             'newEmail' => ['sometimes', "required",'string','email', Rule::unique('users', 'email'),],
-            'role' => ['sometimes', "required", "string"],
-            'img' => ['sometimes','mimes:jpeg,png,jpg,gif','image','max:5120'],
-            'teacherId' => ['sometimes', "required", "string"],
+            'vaiTro' => ['sometimes', "required", "string"],
+            'img' => ['sometimes',"required",'mimes:jpeg,png,jpg,gif','image','max:5120'],
+            "diaChi" => ['sometimes', "required", "string"],
+            "ghiChu" => ['sometimes', "required",'string', 'max:20'],
+
+            'newName' =>  ['sometimes', "required",'string'],
+            'email' => ['sometimes', "required",'string','email'],
 
             'current_password' => ['sometimes','required',"min:8", 'current_password'],
             'password' => ['sometimes','required', Password::defaults(),"min:8", 'confirmed'],
             'resetPass' => ['sometimes','required',Password::defaults(),"min:8"],
 
-            'address' => ['sometimes','required','string'],
-            'age' => ['sometimes','required','numeric'],
-            'phone' => ['sometimes','required','numeric',"digits:10"],
-            'dateOfBirth' => ['sometimes','required','date'],
+            "danhMuc" =>  ['sometimes', "required",'string', Rule::unique('danh_mucs', 'ten')],
+            "danhMucMoi" =>  ['sometimes', "required",'string'],
+
+            "tenSP" => ['sometimes', "required",'string', Rule::unique('san_phams', 'ten')],
+            "nhaSX" => ['sometimes', "required", "string"],
+            "tonKho" => ['sometimes', "required", "numeric"],
+            'namSX' => ['sometimes', 'required', 'string'],
+            "giaNhap" => ['sometimes', "required", "numeric"],
+            "giaBan" => ['sometimes', "required", "numeric"],
+            "moTa" => ['sometimes', "required",'string', 'max:2000'],
+            "baoHanh" => ['sometimes', 'required', 'string'],
+
+            "tenSPmoi" => ['sometimes', "required",'string'],
+
+            'sDT' => ['sometimes','required','numeric',"digits:10"],
+            'ngaySinh' => ['sometimes','required','date'],
             'gender' => ['sometimes','required','string'],
-
-            'departmentId' => ['sometimes','required','numeric'],
-            'gradeId' => ['sometimes','required','numeric'],
-            "education" => ['sometimes','required','string'],
-
-            'nameDepartment' => ['sometimes','required','string',Rule::unique('departments', 'name'),],
-            'codeDepartment' => ['sometimes','required','string',Rule::unique('departments', 'code'),],
-            'nameGrade' => ['sometimes','required','string',Rule::unique('grades', 'name'),],
-
-            "nameSubject" => ['sometimes','required','string',Rule::unique('subjects', 'name'),],
-            "creditUnit" =>['sometimes','required','numeric'],
-            "lessonCount" => ['sometimes','required','numeric'],
-
-            "fee_1_credit" => ['sometimes','required','numeric'],
-            "description" => ['sometimes','required','string'],
-            "day" => ['sometimes','required','string'],
-            "dateStartStudy" => ['sometimes','required','date'],
-            "dateEndStudy" => ['sometimes','required','date'],
         ];
     }
 
@@ -65,8 +63,10 @@ class UserRequest extends FormRequest
     {
         return [
             'required' => "Trường này không được bỏ trống",
+            "unique" => "Đã tồn tại!",
 
             'name.regex' =>  'Tên chỉ chứa các ký tự',
+            'sDT.digits' => "Số điện thoại phải 10 số",
 
             'email.email'=> 'Sai định dạng email',
             'newEmail.unique' => 'Email đã tồn tại! Vui lòng chọn email khác',
@@ -77,10 +77,12 @@ class UserRequest extends FormRequest
 
             'min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
             'current_password.current_password' => 'Mật khẩu hiện tại không đúng',
-            'password.confirmed' => 'Xác nhận mật khẩu không khớp',
+            'matKhau.confirmed' => 'Xác nhận mật khẩu không khớp',
 
-            'numberic' => 'Vui long nhập số!',
+            'numeric' => 'Vui long nhập số!',
             'date' => 'Vui lòng nhập theo thứ tự DD/MM/YY',
+            "moTa.max" => "Vui lòng nhập dưới 2000 ký tự",
+            "ghiChu.max" => "Vui lòng nhập dưới 20 ký tự",
 
             'nameDepartment.unique' => 'Khoa đã tồn tại!',
             'codeDepartment.unique' => 'Mã khoa đã tồn tại!',

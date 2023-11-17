@@ -62,10 +62,16 @@
                             <div class="col-md-12 form-group p_star">
                                 <label for="f-option3">Địa chỉ: </label>
                                 <input type="text" class="form-control" id="add1" name="diaChi" >
+                                @error('diaChi')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="f-option3">Ghi chú: </label>
                                 <textarea class="form-control" name="ghiChu" id="message" rows="1" ></textarea>
+                                @error('ghiChu')
+                                <small class="form-text">{{ $message }}</small>
+                                @enderror
                             </div>
                             <input type="number" class="d-none" id="tongTien1" value="" name="tongTien">
                         </form>

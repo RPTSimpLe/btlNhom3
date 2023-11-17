@@ -72,6 +72,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get("/admin/thongKe",[\App\Http\Controllers\ThongKeTongController::class,"index"]);
 
+        Route::get("/admin/danhGia",[DanhGiaController::class,"showALL"]);
+        Route::delete("/admin/deleteDanhGia/{id}",[DanhGiaController::class,"destroy"]);
+
+        Route::get("/admin/inHoaDon/{hoaDonId}",[\App\Http\Controllers\PdfController::class,"hoaDonPDF"]);
+        Route::get("/admin/inThongKe/{tKTongId}",[\App\Http\Controllers\PdfController::class,"thongKePDF"]);
     });
 
     // các route chỉ được truy cập bởi user
@@ -93,8 +98,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/donHangDaDat",[HoaDonController::class,"show"]);
 
         Route::get("/danhGia/{tenSP}",[DanhGiaController::class,"chiTiet"]);
-        Route::post("/themDanhGia",[DanhGiaController::class,"store"]);
-
+        Route::post("/themDanhGia/{id}",[DanhGiaController::class,"store"]);
     });
 
     Route::put("/profile/password",[UserController::class,"updatePass"]);

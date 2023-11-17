@@ -14,6 +14,7 @@ class hoaDon extends Model
         "tongTien",
         "ship",
         "user_id",
+        "danhGia",
     ];
     public function users(){
         $this->belongsTo(User::class);

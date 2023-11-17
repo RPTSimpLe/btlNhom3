@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\danhMuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,10 +29,11 @@ class DanhMucController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
+        $validate = $request->validated();
         $danhMuc= danhMuc::create([
-           "ten" => $request->ten,
+           "ten" => $request->danhMuc,
         ]);
         $danhMuc->save();
         return redirect("/admins/admin/danhSachDanhMuc");
@@ -61,11 +63,13 @@ class DanhMucController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
+        $validate = $request->validated();
+
         $danhMuc = danhMuc::find($id);
         $danhMuc->update([
-           "ten" => $request->ten,
+           "ten" => $request->danhMucMoi,
         ]);
         return back()->with("status", "Cập nhật thành công");
     }

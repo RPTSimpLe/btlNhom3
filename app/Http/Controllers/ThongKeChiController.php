@@ -14,7 +14,7 @@ class ThongKeChiController extends Controller
         $tienChi = $this->tinhTienChi($request);
 
         $chi=thongKeChi::create([
-            "tenSanPham"=>$request->ten,
+            "tenSanPham"=>$request->tenSP,
             "soLuongNhap"=>$request->tonKho,
             "giaNhap"=>$request->giaNhap,
             "thongKeTong_id" =>$id,
@@ -22,7 +22,7 @@ class ThongKeChiController extends Controller
         ]);
         $chi->save();
         $thu = new ThongKeThuController();
-        $thu->store($request->ten,$request->giaBan);
+        $thu->store($request->tenSP,$request->giaBan);
     }
     public function taoThongKeTong($request,$date){
         $tienChi = $this->tinhTienChi($request);
@@ -51,7 +51,7 @@ class ThongKeChiController extends Controller
         $tienChiMoi = $this->tinhTienChi($request);
         if ($thongKeChi->updated_at==$ngayMoi){
             $thongKeChi->update([
-                "tenSanPham" =>$request->ten,
+                "tenSanPham" =>$request->tenSPmoi,
                 "giaNhap" => $request->giaNhap,
                 "tongTienNhapHang"=>$tienChiMoi,
                 "soLuongNhap" => $request->tonKho,

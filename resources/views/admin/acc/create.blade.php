@@ -25,7 +25,7 @@
             <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Họ tên: </label></div>
             <div class="col-12 col-md-9">
                 <input type="text" id="text-input" placeholder="Nhập họ tên" class="form-control" name="hoTen">
-                @error('name')
+                @error('hoTen')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
             </div>
@@ -33,7 +33,7 @@
         <div class="row form-group">
             <div class="col col-md-3"><label for="email-input" class=" form-control-label">Email: </label></div>
             <div class="col-12 col-md-9">
-                <input type="email" id="email-input" name="email" placeholder="Nhập email" class="form-control">
+                <input type="email" id="email-input" name="newEmail" placeholder="Nhập email" class="form-control">
                 @error('newEmail')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
@@ -43,7 +43,7 @@
             <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Điện thoại: </label></div>
             <div class="col-12 col-md-9">
                 <input type="number" id="text-input" placeholder="Nhập điện thoại" class="form-control" name="sDT">
-                @error('name')
+                @error('sDT')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
             </div>
@@ -52,14 +52,14 @@
             <div class="col-3 col-md-3"><label for="text-input" class=" form-control-label">Ngày sinh: </label></div>
             <div class="col-12 col-md-9">
                 <input type="date" id="text-input" placeholder="Nhập ngày sinh" class="form-control" name="ngaySinh">
-                @error('name')
+                @error('ngaySinh')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
             </div>
         </div>
         <div class="row form-group">
             <div class="col col-md-3"><label for="password-input" class=" form-control-label">Mật khẩu: </label></div>
-            <div class="col-12 col-md-9"><input type="password" id="password-input" name="matKhau" placeholder="Nhập mật khẩu" class="form-control">
+            <div class="col-12 col-md-9"><input type="password" id="password-input" name="password" placeholder="Nhập mật khẩu" class="form-control">
                 @error('password')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
@@ -78,13 +78,13 @@
                     <option value="admin">admin</option>
                     <option value="user">user</option>
                 </select>
-                @error('name')
+                @error('vaiTro')
                 <small class="form-text">{{ $message }}</small>
                 @enderror
             </div>
         </div>
         <div class="row form-group">
-            <div class="col col-md-3"><label for="file-input" class=" form-control-label">File input</label></div>
+            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Ảnh</label></div>
             <div class="col-12 col-md-9"><input type="file" id="file-input" name="img" class="form-control-file">
                 @error('img')
                 <small class="form-text">{{ $message }}</small>

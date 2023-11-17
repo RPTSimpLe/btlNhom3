@@ -28,9 +28,9 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên danh mục: </label></div>
-                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="ten"
+                                    <div class="col-12 col-md-9 " id="name"><input type="text" id="text-input" name="danhMucMoi"
                                                                                    class="form-control ten">
-                                        @error('ten')
+                                        @error('danhMucMoi')
                                         <small class="form-text">{{ $message }}</small>
                                         @enderror
                                     </div>

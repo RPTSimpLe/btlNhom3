@@ -5790,4 +5790,8 @@ label {
   .footer-text i {
     color: #ffba00; }
 
+small{
+    text-align: left;
+    color: red;
+}
 /*# sourceMappingURL=main.css.map */

@@ -31,15 +31,16 @@ class UserController extends Controller
         isset(User::find($user->id)->images->url)? $url=User::find($user->id)->images->url:$url="";
         return view("user.thongTin.thongTin",compact("user","url"));
     }
-    public function adminStore(Request $request){
-        $matkhau= $request->matKhau;
+    public function adminStore(UserRequest $request){
+        $validation = $request->validated();
+        $matkhau= $request->password;
         $user=User::create([
             "name" => $request->name,
             "hoTen" => $request->hoTen,
             "password" => $matkhau,
             "vaiTro" => $request->vaiTro,
             "sDT" => $request->sDT,
-            "email" => $request->email,
+            "email" => $request->newEmail,
             "ngaySinh" => $request->ngaySinh,
         ]);
         $user->save();
@@ -48,7 +49,8 @@ class UserController extends Controller
             return redirect("/admins/admin/list");
     }
 
-    public function store(Request $request){
+    public function store(UserRequest $request){
+        $validation = $request->validated();
         $matkhau= $request->matKhau;
         $user=User::create([
             "name" => $request->name,
@@ -69,12 +71,13 @@ class UserController extends Controller
         return view("admin.acc.listAcc", compact("users"));
     }
 
-    public function update(Request $request,$id)
+    public function update(UserRequest $request,$id)
     {
+        $validation = $request->validated();
 
         $user= User::find($id);
         $user->update([
-            'name' => $request->name,
+            'newName' => $request->name,
             'email' => $request->email,
             "hoTen" => $request->hoTen,
             "sDT"  => $request->sDT,

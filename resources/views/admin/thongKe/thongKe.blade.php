@@ -16,8 +16,9 @@
     @if(count($thongKes)!=0)
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between">
                     <strong class="card-title">Thống kê tháng {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thongKes[0]->updated_at)->format("m/Y")}}</strong>
+                    <a class="btn btn-info" href="/admins/admin/inThongKe/{{$thongKes[0]->id}}">In thống kê</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">

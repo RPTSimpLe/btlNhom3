@@ -60,9 +60,9 @@
                         <div class="price-range-area">
                             <div class="value-wrapper ">
                                 <label class="price">Từ</label>
-                                <input type="number" id="tu" style="margin-left: 3%;" class="priceInput" value="0" onkeyup="timKiemTheoKhoang()"> <br>
+                                <input type="number" id="tu" class="form-control priceInput" value="0" onkeyup="timKiemTheoKhoang()" onclick="timKiemTheoKhoang()"> <br>
                                 <label class="to">Đến</label>
-                                <input type="number" id="den" class="priceInput" max="200000000" value="200000000" onkeyup="timKiemTheoKhoang()">
+                                <input type="number" id="den" class="form-control priceInput" max="200000000" value="200000000" onkeyup="timKiemTheoKhoang()" onclick="timKiemTheoKhoang()">
                             </div>
                         </div>
                     </div>

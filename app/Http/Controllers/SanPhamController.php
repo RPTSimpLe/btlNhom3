@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\danhMuc;
 use App\Models\sanPham;
 use Illuminate\Http\Request;
@@ -35,10 +36,12 @@ class SanPhamController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
+        $validates = $request->validated();
+
         $sanPham = sanPham::create([
-            "ten" => $request->ten,
+            "ten" => $request->tenSP,
             "nhaSX" => $request->nhaSX,
             "namSX" => $request->namSX,
             "tonKho" => $request->tonKho,
@@ -134,13 +137,14 @@ class SanPhamController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
+        $validates = $request->validated();
         $sanPham= sanPham::find($id);
         $tenCu=$sanPham->ten;
 
         $sanPham->update([
-            'ten' => $request->ten,
+            'ten' => $request->tenSPmoi,
             "nhaSX" => $request->nhaSX,
             "namSX" => $request->namSX,
             "tonKho" => $request->tonKho,
