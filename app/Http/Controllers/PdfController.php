@@ -26,8 +26,9 @@ class PdfController extends Controller
         $tKTong = thongKeTong::find($tKTongId);
         $chitiet= DB::table("thong_ke_thus")
             ->select("thong_ke_thus.*","thong_ke_chis.soLuongNhap","thong_ke_chis.giaNhap","thong_ke_chis.tongTienNhapHang")
-            ->join("thong_ke_chis","thong_ke_chis.thongKeTong_id","=","thong_ke_thus.thongKeTong_id")
-            ->where("thong_ke_thus.thongKeTong_id","=",$tKTongId)->get();
+            ->join("thong_ke_chis","thong_ke_chis.tenSanPham","=","thong_ke_thus.tenSanPham")
+            ->where("thong_ke_thus.thongKeTong_id","=",$tKTongId)
+            ->get();
         $data= [
             "tKTong" => $tKTong,
             "chitiet" => $chitiet,

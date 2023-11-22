@@ -117,8 +117,11 @@ class DanhGiaController extends Controller
         $value= $request->keys();
         $x=$value[0];
         if ($x=="name"){
-            $uID=DB::table("users")->where("name","=",$request->$x)->first();
-            $searchDanhGias = DB::table("danh_gias")->where("user_id","=",$uID->id)->get();
+            $searchDanhGias="";
+            if (DB::table("users")->where("name","=",$request->$x)->first()!=null) {
+                $uID = DB::table("users")->where("name", "=", $request->$x)->first();
+                $searchDanhGias = DB::table("danh_gias")->where("user_id", "=", $uID->id)->get();
+            }
         }else {
             $searchDanhGias = DB::table("danh_gias")->where($x,"=",$request->$x)->get();
         }
