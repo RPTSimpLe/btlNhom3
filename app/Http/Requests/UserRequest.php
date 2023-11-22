@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'hoTen' =>  ['sometimes', "required",'string', 'regex:/^[^0-9]+$/'],
             'newEmail' => ['sometimes', "required",'string','email', Rule::unique('users', 'email'),],
             'vaiTro' => ['sometimes', "required", "string"],
-            'img' => ['sometimes',"required",'mimes:jpeg,png,jpg,gif','image','max:5120'],
+            'img' => ['sometimes',"required",'mimes:jpeg,png,jpg,gif,webp','image','max:5120'],
             "diaChi" => ['sometimes', "required", "string"],
             "ghiChu" => ['sometimes', "required",'string', 'max:20'],
 
@@ -71,7 +71,7 @@ class UserRequest extends FormRequest
             'email.email'=> 'Sai định dạng email',
             'newEmail.unique' => 'Email đã tồn tại! Vui lòng chọn email khác',
 
-            'img.mimes' => 'Ảnh phải có dạng: jpeg,png,jpg,gif',
+            'img.mimes' => 'Ảnh phải có dạng: jpeg,png,jpg,gif,webp',
             'img.image' => "Vui lòng nhập file ảnh",
             'img.max' => "Ảnh có kích thước <5mb",
 

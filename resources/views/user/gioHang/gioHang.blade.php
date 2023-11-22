@@ -59,10 +59,15 @@
                                 </td>
                                 <td>
                                     <div class="product_count">
-                                        <input type="number" name="qty" id="sst" maxlength="12" value="{{$cart->soLuong}}"
-                                               onkeyup="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"
-                                               onclick="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"
-                                               class="input-text qty">
+                                       <form id="updateSL_{{$cart->id}}" action="/user/capNhatGioHang/{{$cart->id}}" method="post">
+                                           @csrf
+                                           @method("patch")
+                                           <input type="number" name="soLuong" id="sst" maxlength="12" value="{{$cart->soLuong}}"
+                                                  onkeyup="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"
+{{--                                                  onclick="tien(this.value,{{$cart->giaBan}},{{$cart->id}})"--}}
+                                                  class="input-text qty">
+                                           <input type="number" name="tongTienBan" id="tongTienBan_{{$cart->id}}" hidden="">
+                                       </form>
                                     </div>
                                 </td>
                                 <td>
@@ -138,6 +143,8 @@
     <script>
         function tien(sl,gt,id){
             document.getElementById("tien_"+id).innerHTML = sl*gt+"đ"
+            document.getElementById("tongTienBan_"+id).value=sl*gt
+            document.getElementById("updateSL_"+id).submit()
              tongTien()
         }
         function tongTien(){

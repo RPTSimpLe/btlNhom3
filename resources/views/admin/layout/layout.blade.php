@@ -58,8 +58,12 @@
                 <li >
                     <a href="/admins/admin/donHang"> <i class="menu-icon fa fa-dashboard"></i>Đơn hàng</a>
                 </li>
-                <li >
-                    <a href="/admins/admin/thongKe"> <i class="menu-icon fa fa-dashboard"></i>Thống kê</a>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-address-card "></i>Thống kê</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-id-badge"></i><a href="/admins/admin/thongKeNgay">Theo ngày</a></li>
+                        <li><i class="fa  fa-plus-square-o"></i><a href="/admins/admin/thongKe"">Theo tháng</a></li>
+                    </ul>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

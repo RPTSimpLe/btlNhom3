@@ -128,7 +128,7 @@
                             <div class="col-lg-6">
                                 <div class="review_box">
                                     <h4>Thêm đánh giá</h4>
-                                    <form class="row contact_form" action="/user/themDanhGia/{{$sanPham->id}}" method="post" id="contactForm" method="post" novalidate="novalidate">
+                                    <form class="row contact_form" action="/user/themDanhGia" method="post" id="contactForm" method="post" novalidate="novalidate">
                                         @csrf
                                         <p style="padding-left: 15px;">Đánh giá của bạn: </p>
                                         <ul class="list">
@@ -138,6 +138,7 @@
                                             <li><i class="fa fa-star" id="rv_4" onclick="danhGia(this)"></i></li>
                                             <li><i class="fa fa-star" id="rv_5" onclick="danhGia(this)"></i></li>
                                         </ul>
+                                        <input name="idHD" value="{{$idHD}}" hidden>
                                         <input name="soSao" id="soSao" value="1" hidden>
                                         <input name="idSP" id="idSP" value="{{$sanPham->id}}" hidden>
                                         <div class="col-md-12">

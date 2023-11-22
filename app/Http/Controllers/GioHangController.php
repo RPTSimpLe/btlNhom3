@@ -69,9 +69,14 @@ class GioHangController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, gioHang $gioHang)
+    public function update($id, Request $request)
     {
-        //
+        $cart = gioHang::find($id);
+        $cart->update([
+            "soLuong" => $request->soLuong,
+            "tongTien" => $request->tongTienBan
+        ]);
+        return $this->index();
     }
 
     /**

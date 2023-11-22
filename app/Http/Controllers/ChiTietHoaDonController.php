@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\chiTietHoaDon;
 use App\Models\gioHang;
 use App\Models\sanPham;
+use App\Models\ThongKeNgay;
 use App\Models\thongKeTong;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,11 +61,15 @@ class ChiTietHoaDonController extends Controller
             $thongKeThu->update($gioHang->ten,$gioHang->soLuong,$gioHang->tongTien);
             $tongTienGioHang+= intval($gioHang->tongTien);
 
+            $thongKeNgay= new ThongKeNgayController();
+            $thongKeNgay->store($gioHang->ten,$gioHang->soLuong,$gioHang->tongTien);
+
             gioHang::find($gioHang->id)->delete();
         }
 
         $thongKeTong= new ThongKeTongController();
         $thongKeTong->updateTongThu($tongTienGioHang);
+
     }
     /**
      * Display the specified resource.

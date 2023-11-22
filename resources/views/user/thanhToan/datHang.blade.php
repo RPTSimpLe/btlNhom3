@@ -93,6 +93,8 @@
                                 <li><a href="#">Giảm giá
                                             @if(\Illuminate\Support\Facades\Auth::user()->KHTT==1)
                                                 <span id="giamGia">10%</span>
+                                            @else
+                                            <span id="giamGia">0%</span>
                                             @endif
                                         </a></li>
                                 <li><a href="#">Phí ship <span id="ship">20000đ</span></a></li>
@@ -142,6 +144,7 @@
         function themHD() {
             document.getElementById('form').submit();
         }
+        console.log("a: "+document.getElementById("tongTien1").value)
     </script>
 @endsection
 </body>

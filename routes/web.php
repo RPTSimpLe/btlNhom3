@@ -24,7 +24,20 @@ Route::get('/', function () {
     return redirect("/dashboard");
 });
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $spGanDay = \Illuminate\Support\Facades\DB::table("san_phams")
+        ->select("san_phams.*","images.url")
+        ->join("images","sanPham_id","=","san_phams.id")
+        ->latest()->limit(10)->get();
+    $bestSellers = \Illuminate\Support\Facades\DB::table("thong_ke_thus")
+        ->orderByDesc("soLuongBan")->limit(5)->get();
+    $spBestSeller=[];
+    foreach ($bestSellers as $bestSeller) {
+        $spBestSeller[]=\Illuminate\Support\Facades\DB::table("san_phams")
+            ->select("san_phams.*","images.url")
+            ->join("images","sanPham_id","=","san_phams.id")
+            ->where("ten","=",$bestSeller->tenSanPham)->first();
+    }
+    return view('dashboard',compact("spGanDay","spBestSeller"));
 })->name('dashboard');
 
 Route::post("/registerr",[UserController::class,"store"]);
@@ -72,8 +85,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get("/admin/thongKe",[\App\Http\Controllers\ThongKeTongController::class,"index"]);
 
+        Route::get("/admin/thongKeNgay",[\App\Http\Controllers\ThongKeNgayController::class,"index"]);
+
         Route::get("/admin/danhGia",[DanhGiaController::class,"showALL"]);
         Route::delete("/admin/deleteDanhGia/{id}",[DanhGiaController::class,"destroy"]);
+        Route::get("/admin/searchDanhGia",[DanhGiaController::class,"search"]);
 
         Route::get("/admin/inHoaDon/{hoaDonId}",[\App\Http\Controllers\PdfController::class,"hoaDonPDF"]);
         Route::get("/admin/inThongKe/{tKTongId}",[\App\Http\Controllers\PdfController::class,"thongKePDF"]);
@@ -87,6 +103,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/hoaDon",function (){return view("user.thanhToan.hoaDon");});
 
         Route::get("/gioHang",[GioHangController::class,"index"]);
+        Route::patch("/capNhatGioHang/{id}",[GioHangController::class,"update"]);
         Route::get("/themVaoGio",[GioHangController::class,"store"]);
         Route::delete("/xoaGioHang/{id}",[GioHangController::class,"destroy"]);
 
@@ -98,7 +115,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/donHangDaDat",[HoaDonController::class,"show"]);
 
         Route::get("/danhGia/{tenSP}",[DanhGiaController::class,"chiTiet"]);
-        Route::post("/themDanhGia/{id}",[DanhGiaController::class,"store"]);
+        Route::post("/themDanhGia",[DanhGiaController::class,"store"]);
     });
 
     Route::put("/profile/password",[UserController::class,"updatePass"]);

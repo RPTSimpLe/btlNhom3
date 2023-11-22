@@ -15,7 +15,7 @@ class DanhGiaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function chiTiet($tenSP)
+    public function chiTiet($tenSP, Request $request)
     {
         $sanPham = DB::table("san_phams")
             ->select("san_phams.*","images.url","danh_mucs.ten as tenDanhMuc")
@@ -46,7 +46,8 @@ class DanhGiaController extends Controller
                 $demSoSao[]=$demSao;
             }
         }
-        return view("user.sanPham.chiTiet",compact("sanPham","danhGias","form","tbc","demSoSao"));
+        $idHD =  $request->idHD;
+        return view("user.sanPham.chiTiet",compact("sanPham","danhGias","form","tbc","demSoSao","idHD"));
     }
 
     /**
@@ -60,7 +61,7 @@ class DanhGiaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
         $danhGia = danhGia::create([
             "soSao"=> $request->soSao,
@@ -69,7 +70,7 @@ class DanhGiaController extends Controller
             "sanPham_id"=> $request->idSP,
         ]);
         $danhGia->save();
-        $hoaDon = hoaDon::find($id);
+        $hoaDon = hoaDon::find($request->idHD);
         $hoaDon->update([
             "danhGia" => "đã đánh giá"
         ]);
@@ -111,5 +112,16 @@ class DanhGiaController extends Controller
         $danhGia = danhGia::find($id);
         $danhGia->delete();
         return redirect("/admins/admin/danhGia");
+    }
+    public function search(Request $request){
+        $value= $request->keys();
+        $x=$value[0];
+        if ($x=="name"){
+            $uID=DB::table("users")->where("name","=",$request->$x)->first();
+            $searchDanhGias = DB::table("danh_gias")->where("user_id","=",$uID->id)->get();
+        }else {
+            $searchDanhGias = DB::table("danh_gias")->where($x,"=",$request->$x)->get();
+        }
+        return back()->with("searchDanhGias",$searchDanhGias);
     }
 }

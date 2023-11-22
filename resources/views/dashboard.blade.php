@@ -115,45 +115,81 @@
                         <div class="col-lg-8 col-md-8">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" src="{{asset("user/img/category/c1.jpg")}}" alt="">
-                                <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
-                                    <div class="deal-details">
-                                        <h6 class="deal-title">Laptop</h6>
-                                    </div>
-                                </a>
+                                @if(isset($spBestSeller[0]))
+                                    <img class="img-fluid w-100" src="/images/{{$spBestSeller[0]->url}}" alt="">
+                                    <a href="/chiTietSanPham/{{$spBestSeller[0]->id}}">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">{{$spBestSeller[0]->ten}}</h6>
+                                        </div>
+                                    </a>
+                                @else
+                                    <img class="img-fluid w-100" src="{{asset("user/img/category/c1.jpg")}}" alt="">
+                                    <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">Laptop</h6>
+                                        </div>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" src="{{asset("user/img/category/c2.jpg")}}" alt="">
-                                <a href="user/img/category/c2.jpg" class="img-pop-up" target="_blank">
-                                    <div class="deal-details">
-                                        <h6 class="deal-title">Laptop</h6>
-                                    </div>
-                                </a>
+                                @if(isset($spBestSeller[1]))
+                                    <img class="img-fluid w-100" src="/images/{{$spBestSeller[1]->url}}" alt="">
+                                    <a href="/chiTietSanPham/{{$spBestSeller[1]->id}}">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">{{$spBestSeller[1]->ten}}</h6>
+                                        </div>
+                                    </a>
+                                @else
+                                    <img class="img-fluid w-100" src="{{asset("user/img/category/c2.jpg")}}" alt="">
+                                    <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">Laptop</h6>
+                                        </div>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" src="{{asset("user/img/category/c3.jpg")}}" alt="">
-                                <a href="user/img/category/c3.jpg" class="img-pop-up" target="_blank">
-                                    <div class="deal-details">
-                                        <h6 class="deal-title">Laptop</h6>
-                                    </div>
-                                </a>
+                                @if(isset($spBestSeller[2]))
+                                    <img class="img-fluid w-100" src="/images/{{$spBestSeller[2]->url}}" alt="">
+                                    <a href="/chiTietSanPham/{{$spBestSeller[2]->id}}">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">{{$spBestSeller[2]->ten}}</h6>
+                                        </div>
+                                    </a>
+                                @else
+                                    <img class="img-fluid w-100" src="{{asset("user/img/category/c3.jpg")}}" alt="">
+                                    <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">Laptop</h6>
+                                        </div>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                <img class="img-fluid w-100" src="{{asset("user/img/category/c4.jpg")}}" alt="">
-                                <a href="user/img/category/c4.jpg" class="img-pop-up" target="_blank">
-                                    <div class="deal-details">
-                                        <h6 class="deal-title">Laptop</h6>
-                                    </div>
-                                </a>
+                                @if(isset($spBestSeller[3]))
+                                    <img class="img-fluid w-100" src="/images/{{$spBestSeller[3]->url}}" alt="">
+                                    <a href="/chiTietSanPham/{{$spBestSeller[3]->id}}">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">{{$spBestSeller[3]->ten}}</h6>
+                                        </div>
+                                    </a>
+                                @else
+                                    <img class="img-fluid w-100" src="{{asset("user/img/category/c4.jpg")}}" alt="">
+                                    <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">Laptop</h6>
+                                        </div>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -161,12 +197,21 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-deal">
                         <div class="overlay"></div>
-                        <img class="img-fluid w-100" src="{{asset("user/img/category/c5.jpg")}}" alt="">
-                        <a href="user/img/category/c5.jpg" class="img-pop-up" target="_blank">
-                            <div class="deal-details">
-                                <h6 class="deal-title">Laptop</h6>
-                            </div>
-                        </a>
+                        @if(isset($spBestSeller[2]))
+                            <img class="img-fluid w-100" src="/images/{{$spBestSeller[2]->url}}" alt="">
+                            <a href="/chiTietSanPham/{{$spBestSeller[2]->id}}">
+                                <div class="deal-details">
+                                    <h6 class="deal-title">{{$spBestSeller[2]->ten}}</h6>
+                                </div>
+                            </a>
+                        @else
+                            <img class="img-fluid w-100" src="{{asset("user/img/category/c5.jpg")}}" alt="">
+                            <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                <div class="deal-details">
+                                    <h6 class="deal-title">Laptop</h6>
+                                </div>
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -186,121 +231,23 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r1.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
+                       @if(isset($spGanDay))
+                           @for($x=0;$x<9;$x++)
+                               @if(isset($spGanDay[$x]))
+                                    <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+                                        <div class="single-related-product d-flex">
+                                            <a href="#"><img style="width: 70px;height: 70px" src="/images/{{$spGanDay[$x]->url}}" alt=""></a>
+                                            <div class="desc">
+                                                <a href="#" class="title">{{$spGanDay[$x]->ten}}</a>
+                                                <div class="price">
+                                                    <h6>{{$spGanDay[$x]->giaBan}}VND</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r2.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r3.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r5.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r6.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r7.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r9.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r10.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="single-related-product d-flex">
-                                <a href="#"><img style="width: 70px;height: 70px" src="{{asset("user/img/r11.jpg")}}" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title">Laptop</a>
-                                    <div class="price">
-                                        <h6>$189.00</h6>
-                                        <h6 class="l-through">$210.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="ctg-right">
-                        <a href="#" target="_blank">
-                            <img class="img-fluid d-block mx-auto" src="{{asset("user/img/category/c5.jpg")}}" alt="">
-                        </a>
+                               @endif
+                           @endfor
+                       @endif
                     </div>
                 </div>
             </div>
