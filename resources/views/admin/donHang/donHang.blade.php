@@ -126,6 +126,16 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <p>Trạng thái</p>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <p>{{$hoaDon->TrangThai}}</p>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="3">
                                     <p>Địa chỉ:</p>
                                     <p>{{$hoaDon->diaChi}}</p>
@@ -133,6 +143,25 @@
                             </tr>
                             <tr>
                                 <td colspan="3" >
+                                    <div class="col-5">
+                                                @if($hoaDon->TrangThai=="Chờ xác nhận")
+                                                    <form action="" id="sua_{{$hoaDon->id}}" class="d-inline">
+                                                        <a class="btn btn-secondary" onclick="updateHoaDon({{$hoaDon->id}},1)" href="#">Chờ giao hàng</a>
+                                                        <a class="btn btn-secondary" onclick="updateHoaDon({{$hoaDon->id}},2)" href="#">Đã giao</a>
+                                                    </form>
+                                                    <form action="" id="xoa_{{$hoaDon->id}}" class="d-inline">
+                                                        <a class="btn btn-danger" onclick="xoaHoaDon({{$hoaDon->id}})" href="#">Hủy đơn hàng</a>
+                                                    </form>
+                                                @elseif($hoaDon->TrangThai=="Chờ giao hàng")
+                                                    <form action="" id="sua_{{$hoaDon->id}}" class="d-inline">
+                                                        <a class="btn btn-secondary" onclick="updateHoaDon({{$hoaDon->id}},2)" href="#">Đã giao</a>
+                                                    </form>
+                                                    <form action="" id="xoa_{{$hoaDon->id}}" class="d-inline">
+                                                        <a class="btn btn-danger" onclick="xoaHoaDon({{$hoaDon->id}})" href="#">Hủy đơn hàng</a>
+                                                    </form>
+                                                @endif
+
+                                    </div>
                                     <a style="float:right;" href="/admins/admin/inHoaDon/{{$hoaDon->id}}" class="btn btn-success">In hóa đơn</a>
                                     <a style="float:right;margin-right: 5px" href="/admins/admin/chiTietDon/{{$hoaDon->id}}" class="btn btn-info">Chi tiết</a>
                                 </td>
@@ -145,6 +174,18 @@
             @endforeach
 
     </section>
+@endsection
+@section("src")
+    <script>
+        function updateHoaDon(id,trangthai){
+            document.getElementById("sua_"+id).action = "/admins/admin/updateHoaDon/"+id+"/"+trangthai
+            document.getElementById("sua_"+id).submit()
+        }
+        function xoaHoaDon(id) {
+            document.getElementById("xoa_"+id).action = "/admins/admin/xoaHoaDon/"+id
+            document.getElementById("xoa_"+id).submit()
+        }
+    </script>
 @endsection
 </body>
 </html>

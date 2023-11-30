@@ -10,7 +10,38 @@
 <body>
 @extends("user.layout.layout")
 @section("page")
+    <style>
+        .navHD .nav-item{
+            margin: 0 10%;
+        }
+        .navHD .nav-item .nav-link{
+            font-size: 17px;
+        }
+        .navHD .nav-item .nav-link:hover{
+            color: #ffa500;
+        }
+        .order_details nav{
+            margin-top: 5%;
+        }
+    </style>
     <section class="order_details section_gap">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse " id="navbarNav">
+                    <ul class="navbar-nav d-flex flex w-100 justify-content-center navHD">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Chờ xác nhận</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Chờ giao hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Đã giao</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
             @foreach($hoaDons as $hoaDon)
                 @php
                     $chiTiets= \Illuminate\Support\Facades\DB::table("chi_tiet_hoa_dons")->where("hoaDon_id","=",$hoaDon->id)->get();
@@ -74,6 +105,17 @@
                                         <p>{{$hoaDon->tongTien}}đ</p>
                                     </td>
                                 </tr>
+                                    <tr>
+                                        <td>
+                                            <h4>Tình trạng</h4>
+                                        </td>
+                                        <td>
+                                            <h5></h5>
+                                        </td>
+                                        <td>
+                                            <p>{{$hoaDon->TrangThai}}</p>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <a style="float: right; margin-left: 10px" href="/user/chiTietDon/{{$hoaDon->id}}" class="genric-btn info circle">Chi tiết</a>

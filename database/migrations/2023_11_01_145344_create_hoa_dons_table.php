@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer("ship")->default(20000);
             $table->integer("giamGia")->default(0);
             $table->string("danhGia")->nullable();
+            $table->string("TrangThai")->default("Chờ xác nhận");
             $table->foreignId("user_id")->nullable()->constrained()->onDelete("cascade");
             $table->timestamps();
         });

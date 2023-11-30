@@ -58,7 +58,7 @@ class UserController extends Controller
             "password" => $matkhau,
             "vaiTro" => $request->vaiTro,
             "sDT" => $request->sDT,
-            "email" => $request->email,
+            "email" => $request->newEmail,
             "ngaySinh" => $request->ngaySinh,
         ]);
         $user->save();

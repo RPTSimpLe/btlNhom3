@@ -52,7 +52,7 @@ class HoaDonController extends Controller
             "ghiChu" => $request->ghiChu,
             "tongTien" => $request ->tongTien,
             "giamGia" => $request->giamGia==10 ? 10:0,
-            "user_id" => Auth::user()->id,
+            "user_id" => Auth::user()->id
         ]);
         $hoaDon->save();
         $chitiet= new ChiTietHoaDonController();
@@ -126,16 +126,26 @@ class HoaDonController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, hoaDon $hoaDon)
+    public function update($id,$trangThai)
     {
-        //
+        $hoaDon = hoaDon::find($id);
+        if ($trangThai==1){
+            $trangThai="Chờ giao hàng";
+        }else{
+            $trangThai="Đã giao";
+        }
+        $hoaDon->update([
+           "TrangThai" => $trangThai,
+        ]);
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(hoaDon $hoaDon)
+    public function destroy($id)
     {
-        //
+        hoaDon::find($id)->delete();
+        return back();
     }
 }

@@ -82,6 +82,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/admin/donHang",[HoaDonController::class,"adminShow"]);
         Route::get("/admin/chiTietDon/{id}",[HoaDonController::class,"chiTietHoaDonAD"]);
         Route::get("/admin/searchHoaDon",[HoaDonController::class,"search"]);
+        Route::get("/admin/updateHoaDon/{id}/{trangthai}",[HoaDonController::class,"update"]);
+        Route::get("/admin/xoaHoaDon/{id}",[HoaDonController::class,"destroy"]);
 
         Route::get("/admin/thongKe",[\App\Http\Controllers\ThongKeTongController::class,"index"]);
 
