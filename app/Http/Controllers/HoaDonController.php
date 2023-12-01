@@ -148,4 +148,19 @@ class HoaDonController extends Controller
         hoaDon::find($id)->delete();
         return back();
     }
+    public function locDon($tt){
+        if ($tt==0){
+            $tt="chờ xác nhận";
+        }
+        elseif ($tt==1){
+            $tt="Chờ giao hàng";
+        }else{
+            $tt="Đã giao";
+        }
+
+        $hoaDons= DB::table("hoa_dons")
+            ->where("user_id","=",Auth::user()->id)
+            ->where("TrangThai","=",$tt)->get();
+        return view("user.donHang.donHangDaDat",compact("hoaDons"));
+    }
 }

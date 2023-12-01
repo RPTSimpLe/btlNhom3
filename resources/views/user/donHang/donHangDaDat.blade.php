@@ -30,18 +30,20 @@
                 <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav d-flex flex w-100 justify-content-center navHD">
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Chờ xác nhận</a>
+                            <a class="nav-link" href="/user/locDon/0">Chờ xác nhận</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Chờ giao hàng</a>
+                            <a class="nav-link" href="/user/locDon/1">Chờ giao hàng</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đã giao</a>
+                            <a class="nav-link" href="/user/locDon/2">Đã giao</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
+        <div id="donHangs">
+
             @foreach($hoaDons as $hoaDon)
                 @php
                     $chiTiets= \Illuminate\Support\Facades\DB::table("chi_tiet_hoa_dons")->where("hoaDon_id","=",$hoaDon->id)->get();
@@ -119,14 +121,17 @@
                                 </tbody>
                             </table>
                             <a style="float: right; margin-left: 10px" href="/user/chiTietDon/{{$hoaDon->id}}" class="genric-btn info circle">Chi tiết</a>
-                            @if($hoaDon->danhGia!="đã đánh giá")
+                            @if($hoaDon->danhGia!="đã đánh giá" && $hoaDon->TrangThai=="Đã giao")
                                 <a style="float: right" class="genric-btn success circle arrow" href="/user/danhGia/{{$chiTiet->tenSanPham}}?idHD={{$hoaDon->id}}" >Đánh giá</a>
                             @endif
-
+                            @if($hoaDon->TrangThai!="Đã giao")
+                                <a style="float: right" class="genric-btn success circle arrow" href="/user/huyDon/{{$hoaDon->id}}" >Hủy đơn</a>
+                            @endif
                         </div>
                     </div>
                 </div>
             @endforeach
+        </div>
     </section>
 @endsection
 </body>

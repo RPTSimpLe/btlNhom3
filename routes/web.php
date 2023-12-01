@@ -115,6 +115,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post("/themHoaDon",[\App\Http\Controllers\HoaDonController::class,"store"]);
 
         Route::get("/donHangDaDat",[HoaDonController::class,"show"]);
+        Route::get("/locDon/{tt}",[HoaDonController::class,"locDon"]);
+        Route::get("/huyDon/{id}",[HoaDonController::class,"destroy"]);
 
         Route::get("/danhGia/{tenSP}",[DanhGiaController::class,"chiTiet"]);
         Route::post("/themDanhGia",[DanhGiaController::class,"store"]);
