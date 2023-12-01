@@ -125,7 +125,7 @@
                                 <a style="float: right" class="genric-btn success circle arrow" href="/user/danhGia/{{$chiTiet->tenSanPham}}?idHD={{$hoaDon->id}}" >Đánh giá</a>
                             @endif
                             @if($hoaDon->TrangThai!="Đã giao")
-                                <a style="float: right" class="genric-btn success circle arrow" href="/user/huyDon/{{$hoaDon->id}}" >Hủy đơn</a>
+                                <a style="float: right" class="genric-btn danger circle arrow" href="/user/huyDon/{{$hoaDon->id}}" >Hủy đơn</a>
                             @endif
                         </div>
                     </div>
