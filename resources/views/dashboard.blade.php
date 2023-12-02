@@ -111,8 +111,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-12">
+                    <h1 style="margin-left: 26%">Sản phẩm bán chạy</h1>
                     <div class="row">
-                        <div class="col-lg-8 col-md-8">
+                        <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
                                 @if(isset($spBestSeller[0]))
@@ -172,7 +173,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-8">
+                        <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
                                 @if(isset($spBestSeller[3]))
@@ -192,26 +193,46 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-deal">
-                        <div class="overlay"></div>
-                        @if(isset($spBestSeller[2]))
-                            <img class="img-fluid w-100" src="/images/{{$spBestSeller[2]->url}}" alt="">
-                            <a href="/chiTietSanPham/{{$spBestSeller[2]->id}}">
-                                <div class="deal-details">
-                                    <h6 class="deal-title">{{$spBestSeller[2]->ten}}</h6>
-                                </div>
-                            </a>
-                        @else
-                            <img class="img-fluid w-100" src="{{asset("user/img/category/c5.jpg")}}" alt="">
-                            <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
-                                <div class="deal-details">
-                                    <h6 class="deal-title">Laptop</h6>
-                                </div>
-                            </a>
-                        @endif
+                        <div class="col-lg-4 col-md-4">
+                            <div class="single-deal">
+                                <div class="overlay"></div>
+                                @if(isset($spBestSeller[3]))
+                                    <img class="img-fluid w-100" src="/images/{{$spBestSeller[4]->url}}" alt="">
+                                    <a href="/chiTietSanPham/{{$spBestSeller[4]->id}}">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">{{$spBestSeller[4]->ten}}</h6>
+                                        </div>
+                                    </a>
+                                @else
+                                    <img class="img-fluid w-100" src="{{asset("user/img/category/c4.jpg")}}" alt="">
+                                    <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">Laptop</h6>
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="single-deal">
+                                <div class="overlay"></div>
+                                @if(isset($spBestSeller[5]))
+                                    <img class="img-fluid w-100" src="/images/{{$spBestSeller[5]->url}}" alt="">
+                                    <a href="/chiTietSanPham/{{$spBestSeller[5]->id}}">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">{{$spBestSeller[5]->ten}}</h6>
+                                        </div>
+                                    </a>
+                                @else
+                                    <img class="img-fluid w-100" src="{{asset("user/img/category/c4.jpg")}}" alt="">
+                                    <a href="user/img/category/c1.jpg" class="img-pop-up" target="_blank">
+                                        <div class="deal-details">
+                                            <h6 class="deal-title">Laptop</h6>
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
         ->join("images","sanPham_id","=","san_phams.id")
         ->latest()->limit(10)->get();
     $bestSellers = \Illuminate\Support\Facades\DB::table("thong_ke_thus")
-        ->orderByDesc("soLuongBan")->limit(5)->get();
+        ->orderByDesc("soLuongBan")->limit(6)->get();
     $spBestSeller=[];
     foreach ($bestSellers as $bestSeller) {
         $spBestSeller[]=\Illuminate\Support\Facades\DB::table("san_phams")
