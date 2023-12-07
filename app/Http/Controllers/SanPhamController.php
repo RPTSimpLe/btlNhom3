@@ -52,8 +52,10 @@ class SanPhamController extends Controller
             "danhMuc_id" => $request->danhMuc,
         ]);
         $sanPham->save();
-        $img = new ImageController();
-        $img->storeSanPham($request,$sanPham->id);
+       if(isset($request->img)){
+           $img = new ImageController();
+           $img->storeSanPham($request,$sanPham->id);
+       }
 
         $thongKeChi=new ThongKeChiController();
         $thongKeChi->store($request,$sanPham->updated_at);
