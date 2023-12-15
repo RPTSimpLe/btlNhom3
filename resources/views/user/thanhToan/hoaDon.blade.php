@@ -89,6 +89,17 @@
                         </tr>
                         <tr>
                             <td>
+                                <h4>Hình thức thanh toán</h4>
+                            </td>
+                            <td>
+                                <h5></h5>
+                            </td>
+                            <td>
+                                <p>{{$hoaDon->hinhThucThanhToan}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <h4>Địa chỉ</h4>
                             </td>
                             <td>

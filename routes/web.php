@@ -103,6 +103,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post("/capNhat/{id}",[UserController::class,"update"]);
 
         Route::get("/hoaDon",function (){return view("user.thanhToan.hoaDon");});
+        Route::post("/VNpay",[\App\Http\Controllers\VNPayController::class,"vnpay"]);
+        Route::post("/Momo",[\App\Http\Controllers\momoController::class,"payment"]);
 
         Route::get("/gioHang",[GioHangController::class,"index"]);
         Route::patch("/capNhatGioHang/{id}",[GioHangController::class,"update"]);
@@ -112,7 +114,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/datHang",[HoaDonController::class,"index"]);
 
         Route::get("/chiTietDon/{id}",[\App\Http\Controllers\HoaDonController::class,"hoaDon"]);
-        Route::post("/themHoaDon",[\App\Http\Controllers\HoaDonController::class,"store"]);
+        Route::get("/themHoaDon",[\App\Http\Controllers\HoaDonController::class,"store"]);
 
         Route::get("/donHangDaDat",[HoaDonController::class,"show"]);
         Route::get("/locDon/{tt}",[HoaDonController::class,"locDon"]);

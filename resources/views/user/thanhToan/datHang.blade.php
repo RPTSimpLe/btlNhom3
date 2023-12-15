@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h3>Chi tiết thanh toán</h3>
-                        <form class="row contact_form" id="form" action="/user/themHoaDon" method="post" novalidate="novalidate">
+                        <form class="row contact_form" id="form" action="" method="post" novalidate="novalidate">
                             @csrf
                             <div class="col-md-12 form-group">
                                 <label for="f-option">Họ tên: </label>
@@ -62,16 +62,14 @@
                             <div class="col-md-12 form-group p_star">
                                 <label for="f-option3">Địa chỉ: </label>
                                 <input type="text" class="form-control" id="add1" name="diaChi" >
-                                @error('diaChi')
-                                <small class="form-text">{{ $message }}</small>
-                                @enderror
+                                <small class="form-text" id="adder" hidden="">Vui lòng nhập địa chỉ</small>
                             </div>
+                            <input hidden="" name="redirect">
+                            <input  name="hinhThucThanhToan" id="hinhThucThanhToan" hidden="">
                             <div class="col-md-12 form-group">
                                 <label for="f-option3">Ghi chú: </label>
-                                <textarea class="form-control" name="ghiChu" id="message" rows="1" ></textarea>
-                                @error('ghiChu')
-                                <small class="form-text">{{ $message }}</small>
-                                @enderror
+                                <textarea class="form-control" id="des" name="ghiChu" id="message" rows="1" ></textarea>
+                                <small class="form-text" id="deser" hidden>Vui lòng nhập ghi chú</small>
                             </div>
                             @if(\Illuminate\Support\Facades\Auth::user()->KHTT==1)
                                 <input type="text" class="form-control" hidden value="10" name="giamGia" >
@@ -102,15 +100,16 @@
                             </ul>
                             <div class="payment_item active">
                                 <div class="radion_btn paypal">
-                                    <input type="radio" id="f-option6" name="selector">
-                                    <label for="f-option6">Paypal </label>
+                                    <input type="radio" id="f-option6" name="selector" onclick="hinhThucThanhToan('VNpay')">
+                                    <label for="f-option6">Thanh toan qua VNpay </label>
                                     <img style="width: 287px; height: 31px" src="img/product/card.png" alt="">
                                     <div class="check"></div>
                                 </div>
-                                <div class="radion_btn nganHang">
-                                    <input type="radio" id="f-option11" name="selector">
-                                    <label for="f-option11">Ngân hàng </label>
-                                    <img style="width: 287px; height: 31px" src="img/product/card1.png" alt="">
+                            </div>
+                            <div class="payment_item">
+                                <div class="radion_btn paypal">
+                                    <input type="radio" id="f-option5" name="selector" onclick="hinhThucThanhToan('Thanh toán khi nhận hàng')">
+                                    <label for="f-option5">Thanh toán khi nhận hàng </label>
                                     <div class="check"></div>
                                 </div>
                             </div>
@@ -141,10 +140,26 @@
             document.getElementById("tongTien1").value=tong+ship
         }
         tongTien()
+        let diachi = document.getElementById("add1")
+        let ghichu = document.getElementById("des")
         function themHD() {
-            document.getElementById('form').submit();
+            if(diachi.value== ""){
+                document.getElementById("adder").removeAttribute("hidden")
+            }else if(ghichu.value == ""){
+                document.getElementById("deser").removeAttribute("hidden")
+            }else {
+                document.getElementById('form').submit();
+            }
         }
-        console.log("a: "+document.getElementById("tongTien1").value)
+        function hinhThucThanhToan(value){
+            document.getElementById("hinhThucThanhToan").value = value
+            if(value="Thanh toán khi nhận hàng"){
+                document.getElementById('form').action = "/user/themHoaDon"
+                document.getElementById('form').method = "get"
+            }else {
+                document.getElementById('form').action = "/user/"+value
+            }
+        }
     </script>
 @endsection
 </body>

@@ -117,6 +117,16 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <p>Hình thức thanh toán</p>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <p>{{$hoaDon->hinhThucThanhToan}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <p>Khách hàng</p>
                                 </td>
                                 <td>

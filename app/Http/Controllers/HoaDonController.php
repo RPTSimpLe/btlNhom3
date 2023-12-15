@@ -52,6 +52,7 @@ class HoaDonController extends Controller
             "ghiChu" => $request->ghiChu,
             "tongTien" => $request ->tongTien,
             "giamGia" => $request->giamGia==10 ? 10:0,
+            "hinhThucThanhToan" => $request->hinhThucThanhToan,
             "user_id" => Auth::user()->id
         ]);
         $hoaDon->save();
@@ -149,13 +150,12 @@ class HoaDonController extends Controller
         return back();
     }
     public function locDon($tt){
-        if ($tt==0){
-            $tt="chờ xác nhận";
-        }
-        elseif ($tt==1){
-            $tt="Chờ giao hàng";
+        if($tt == 0){
+            $tt= "chờ xác nhận";
+        }elseif($tt == 1 ){
+            $tt = "chờ giao hàng";
         }else{
-            $tt="Đã giao";
+            $tt = "đã giao";
         }
 
         $hoaDons= DB::table("hoa_dons")

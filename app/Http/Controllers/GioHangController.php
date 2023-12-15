@@ -6,6 +6,7 @@ use App\Models\gioHang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use function Laravel\Prompts\table;
 
 class GioHangController extends Controller
 {
@@ -36,13 +37,24 @@ class GioHangController extends Controller
     public function store(Request $request)
     {
         $tongTien= $request->soLuong*$request->gia;
-        $gioHang = gioHang::create([
-            "soLuong" => $request->soLuong,
-            "sanPham_id" => $request->sanPhamId,
-            "user_id" => Auth::user()->id,
-            "tongTien" => $tongTien,
-        ]);
-        $gioHang->save();
+        if(DB::table("gio_hangs")->where("sanPham_id","=",$request->sanPhamId)->first()!=null){
+            $gioHang = DB::table("gio_hangs")->where("sanPham_id","=",$request->sanPhamId)->first();
+            $gioHang= gioHang::find($gioHang->id);
+            $tongTien=$tongTien+$gioHang->tongTien;
+            $soLuong=$request->soLuong+$gioHang->soLuong;
+            $gioHang->update([
+                "soLuong" => $soLuong,
+                "tongTien" =>   $tongTien
+            ]);
+        }else{
+            $gioHang = gioHang::create([
+                "soLuong" => $request->soLuong,
+                "sanPham_id" => $request->sanPhamId,
+                "user_id" => Auth::user()->id,
+                "tongTien" => $tongTien,
+            ]);
+            $gioHang->save();
+        }
         return back();
     }
 

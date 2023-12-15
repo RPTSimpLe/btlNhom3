@@ -196,7 +196,7 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="single-deal">
                                 <div class="overlay"></div>
-                                @if(isset($spBestSeller[3]))
+                                @if(isset($spBestSeller[4]))
                                     <img class="img-fluid w-100" src="/images/{{$spBestSeller[4]->url}}" alt="">
                                     <a href="/chiTietSanPham/{{$spBestSeller[4]->id}}">
                                         <div class="deal-details">
