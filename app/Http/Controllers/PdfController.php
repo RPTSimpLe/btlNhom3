@@ -33,7 +33,7 @@ class PdfController extends Controller
             "tKTong" => $tKTong,
             "chitiet" => $chitiet,
         ];
-        $pdf = Pdf::loadView('admin.thongKe.inThongKe', $data);
+        $pdf = Pdf::loadView('admin.thongKe.inThongKe', $data)->setPaper('legal', 'landscape');;
 
         return $pdf->stream();
     }
