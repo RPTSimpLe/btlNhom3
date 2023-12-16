@@ -122,6 +122,12 @@ class DanhGiaController extends Controller
                 $uID = DB::table("users")->where("name", "=", $request->$x)->first();
                 $searchDanhGias = DB::table("danh_gias")->where("user_id", "=", $uID->id)->get();
             }
+        }else if($x=="ten") {
+            $searchDanhGias="";
+                if (DB::table("san_phams")->where("ten","like","%".$request->$x."%")->first()!=null) {
+                $pID = DB::table("san_phams")->where("ten","like","%".$request->$x."%")->first();
+                $searchDanhGias = DB::table("danh_gias")->where("sanPham_id", "=", $pID->id)->get();
+            }
         }else {
             $searchDanhGias = DB::table("danh_gias")->where($x,"=",$request->$x)->get();
         }

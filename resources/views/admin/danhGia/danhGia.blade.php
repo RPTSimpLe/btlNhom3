@@ -34,7 +34,7 @@
                         <div class="col-4">
                             <select id="selectSearch" onchange="selectName(this);" class="form-control" required>
                                 <option id="" value="">Tìm kiếm theo:</option>
-                                <option id="" value="name">Người dùng</option>
+                                <option id="" value="name">Khách hàng</option>
                                 <option id="" value="ten">Sản phẩm</option>
                                 <option id="" value="soSao">Sao</option>
                                 <option id="" value="danhGia">Đánh giá</option>
