@@ -153,7 +153,7 @@
         }
         function hinhThucThanhToan(value){
             document.getElementById("hinhThucThanhToan").value = value
-            if(value="Thanh toán khi nhận hàng"){
+            if(value=="Thanh toán khi nhận hàng"){
                 document.getElementById('form').action = "/user/themHoaDon"
                 document.getElementById('form').method = "get"
             }else {

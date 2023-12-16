@@ -104,7 +104,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get("/hoaDon",function (){return view("user.thanhToan.hoaDon");});
         Route::post("/VNpay",[\App\Http\Controllers\VNPayController::class,"vnpay"]);
-        Route::post("/Momo",[\App\Http\Controllers\momoController::class,"payment"]);
 
         Route::get("/gioHang",[GioHangController::class,"index"]);
         Route::patch("/capNhatGioHang/{id}",[GioHangController::class,"update"]);
