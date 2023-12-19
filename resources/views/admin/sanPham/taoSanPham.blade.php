@@ -114,22 +114,6 @@
 </form>
 @endsection
 @section("src")
-<script>
-    function renderTeacher(e) {
-        let selectTeacher=document.getElementById("selectTeacher")
-        if(e.value != ""){
-            get("/admins/admin/searchTeacherByDepartment/"+e.value).
-            then(teachers=>
-            {
-                let html = `<option value="">Chọn giảng viên</option>`
-                for (const teacher of teachers) {
-                    html+=`<option value="${teacher.code} - ${teacher.name}">${teacher.code} - ${teacher.name}</option>`
-                    selectTeacher.innerHTML= html;
-                }
-            })
-        }
-    }
-</script>
 @endsection
 </body>
 </html>
