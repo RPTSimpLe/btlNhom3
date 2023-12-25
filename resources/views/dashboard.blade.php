@@ -250,7 +250,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-9 text-a">
                     <div class="row">
                        @if(isset($spGanDay))
                            @for($x=0;$x<9;$x++)

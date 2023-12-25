@@ -58,7 +58,7 @@ class HoaDonController extends Controller
         $hoaDon->save();
         $chitiet= new ChiTietHoaDonController();
         $chitiet->store($request,$hoaDon->id);
-
+        //khtt
         $hoaDonUsers = DB::table("hoa_dons")->where("user_id","=",Auth::user()->id)->get();
         $y=0;
         foreach ($hoaDonUsers as $hoaDonUser) {

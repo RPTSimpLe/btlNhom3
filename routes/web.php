@@ -86,15 +86,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get("/admin/xoaHoaDon/{id}",[HoaDonController::class,"destroy"]);
 
         Route::get("/admin/thongKe",[\App\Http\Controllers\ThongKeTongController::class,"index"]);
-
         Route::get("/admin/thongKeNgay",[\App\Http\Controllers\ThongKeNgayController::class,"index"]);
+        Route::get("/admin/inThongKe/{tKTongId}",[\App\Http\Controllers\PdfController::class,"thongKePDF"]);
 
         Route::get("/admin/danhGia",[DanhGiaController::class,"showALL"]);
         Route::delete("/admin/deleteDanhGia/{id}",[DanhGiaController::class,"destroy"]);
         Route::get("/admin/searchDanhGia",[DanhGiaController::class,"search"]);
 
         Route::get("/admin/inHoaDon/{hoaDonId}",[\App\Http\Controllers\PdfController::class,"hoaDonPDF"]);
-        Route::get("/admin/inThongKe/{tKTongId}",[\App\Http\Controllers\PdfController::class,"thongKePDF"]);
     });
 
     // các route chỉ được truy cập bởi user
